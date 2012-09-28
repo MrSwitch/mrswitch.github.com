@@ -1,4 +1,146 @@
 <!DOCTYPE html>
 
-<a href="./hello.js">HelloJS</a>
-<a href="./graffiti">Graffiti</a>
+<style>
+	html,body {
+		margin:0;
+		padding:0;
+		height:100%;
+		min-height:100%;
+		overflow: hidden;
+	}
+	body {
+		overflow:auto;
+		font-size:16px;
+		background-color:#ccc;
+		font-family:Verdana, sans-serif;
+	}
+	header{
+		border:1px solid #BBB;
+		padding:2px;
+		background-color:white;
+		display: inline-block;
+		vertical-align: middle;
+		position:absolute;
+		top:0;
+		left:0;
+		z-index:2;
+		box-shadow:5px 5px 5px rgba(0,0,0,0.8);
+
+		-webkit-transform:rotate(-5deg);
+		-moz-transform:rotate(-5deg);
+		-ms-transform:rotate(-5deg);
+		transform:rotate(-5degs);
+
+		-webkit-transform-origin:top left;
+		-moz-transform-origin:top left;
+		-ms-transform-origin:top left;
+		transform-origin:top left;
+	}
+	header img{
+	}
+	h1{
+		display: inline-block;
+		margin:0;
+		clear:after;
+		font-size:1em;
+	}
+	iframe{
+		width:100%;
+		height:100%;
+		position:fixed;
+		top:30px;
+		bottom:0;
+		left:0;
+		right:0;
+		margin:0;
+		border:none;
+		padding:0;
+		box-shadow:0 -5px 5px rgba(0,0,0,0.8);
+	}
+	nav{
+		background-color:#CCC;
+		position:fixed;
+		top:0;
+		left:0;
+		right:0;
+		height:30px;
+		-webkit-transition:all 0.3s;
+		-moz-transition:all 0.3s;
+		-ms-transition:all 0.3s;
+		transition:all 0.3s;
+	}
+	nav ul{
+		position:absolute;
+		left:250px;
+		right:0;
+		height:30px;
+		top:0;
+		margin: 0;
+	}
+	nav ul li{
+		display:inline-block;
+		margin:0;
+	}
+	nav ul li a{
+		font-family:cursive;
+		padding:10px;
+		background:white;
+		display:inline-block;
+		box-shadow:5px 5px 5px rgba(0,0,0,0.8);
+		-webkit-transform:rotate(-5deg);
+		-moz-transform:rotate(-5deg);
+		-ms-transform:rotate(-5deg);
+		transform:rotate(-5degs);
+
+		-webkit-transition:all 0.3s;
+		-moz-transition:all 0.3s;
+		-ms-transition:all 0.3s;
+		transition:all 0.3s;
+	}
+	nav ul li a:target{
+		background-color:yellow;
+	}
+	nav ul li a:hover,nav ul li a:hover{
+		-webkit-transform:translateY(-10px);
+		-moz-transform:translateY(-10px);
+		-ms-transform:translateY(-10px);
+		transform:translateY(-10px);
+	}
+	nav ul li:nth-child(odd){
+		-webkit-transform:rotate(5deg);
+		-moz-transform:rotate(5deg);
+		-ms-transform:rotate(5deg);
+		transform:rotate(5degs);
+	}
+
+	nav:hover{
+		z-index: 10;
+		height:100px;
+		max-height:100%;
+		box-shadow:5px 5px 5px rgba(0,0,0,0.8);
+	}
+
+</style>
+
+<nav>
+	<header>
+		<img src="http://www.gravatar.com/avatar/20043d5ade315f3c25d13b18dba95bc4.png" width=30 height=30 />
+		<h1>@mr_switch's workshop</h1>
+	</header>
+	<ul>
+		<li><a id="graffiti" href="/graffiti" target="frame">Graffiti</a>
+		<li><a id="webrtc" href="http://deep-planet-5370.herokuapp.com/" target="frame">WebRTC Demo</a>
+		<li><a id="toobify" href="http://toobify.com" target="frame">Toobify.com</a>
+		<li><a id="copyandpasted" href="http://copyandpasted.com" target="frame">CopyAndPasted.com</a>
+		<li><a id="hellojs" href="/hello.js" target="frame">HelloJS</a>
+	</ul>
+</nav>
+<iframe src="/graffiti/" id="frame" name="frame"></iframe>
+<script>
+var a = document.querySelectorAll('ul a');
+for(var i=0;i<a.length;i++){
+	a[i].addEventListener('click', function(){
+		window.location.hash = this.id;
+	});
+}
+</script>
