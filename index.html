@@ -1,152 +1,47 @@
 <!DOCTYPE html>
-
+<html>
+<head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/> 
 <!-- use the latest IE browser always, and optionally use chrome frame if installed -->
 <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1" />
 
-<style>
-	html,body {
-		margin:0;
-		padding:0;
-		height:100%;
-		min-height:100%;
-		overflow: hidden;
-	}
-	body {
-		overflow:auto;
-		font-size:16px;
-		background-color:#ccc;
-		font-family:Verdana, sans-serif;
-	}
-	header{
-		border:1px solid #BBB;
-		padding:2px;
-		background-color:white;
-		display: inline-block;
-		vertical-align: middle;
-		position:absolute;
-		top:0;
-		left:0;
-		z-index:2;
-		box-shadow:5px 5px 5px rgba(0,0,0,0.8);
+<link href="/_packages/document.css" rel="stylesheet" />
+</head>
+<body>
 
-		-webkit-transform:rotate(-5deg);
-		-moz-transform:rotate(-5deg);
-		-ms-transform:rotate(-5deg);
-		transform:rotate(-5degs);
+<header>
+	<h1>Andrew Dodson (@mr_switch)</h1>
+	<blockquote><img src="http://www.gravatar.com/avatar/20043d5ade315f3c25d13b18dba95bc4.png" width=80 height=80 style="float:left;margin-right:10px;margin-bottom:10px;"/> Hi i'm Andrew, a web technology aficionado. Things you dont want to know: I get rude over EcmaScript, HTML and CSS. I am evil about cross platform web apps, and co-curated <a href="http://BrowserExperiments.com">BrowserExperiments</a> and some polyfills and shims. When I am not crafting beautifully indented code, I like to speak at events between London and Sydney. I currently live in Sydney as a freelance developer.</blockquote>
+</header>
+<p>Listed below is a selection of my fruits from 2011 and 2012. During this time i was working with two fantastic companies, Microsoft and Tokbox. They have let me share some of the work below</p> 
+<h2>App-tastic creations</h2>
+<ul>
+	<li><a href="http://toobify.com">Toobify.com</a> - An alternative YouTube player app, which has an awesome UI (self-professed).
+	<li><a href="http://copyandpasted.com">CopyAndPasted.com</a> - A WYSIWYG document text editor
+</ul>
 
-		-webkit-transform-origin:top left;
-		-moz-transform-origin:top left;
-		-ms-transform-origin:top left;
-		transform-origin:top left;
-	}
-	header img{
-	}
-	h1{
-		display: inline-block;
-		margin:0;
-		clear:after;
-		font-size:1em;
-	}
-	iframe{
-		width:100%;
-		height:100%;
-		position:fixed;
-		top:30px;
-		bottom:0;
-		left:0;
-		right:0;
-		margin:0;
-		border:none;
-		padding:0;
-		box-shadow:0 -5px 5px rgba(0,0,0,0.8);
-	}
-	nav{
-		background-color:#CCC;
-		position:fixed;
-		top:0;
-		left:0;
-		right:0;
-		height:30px;
-		-webkit-transition:all 0.3s;
-		-moz-transition:all 0.3s;
-		-ms-transition:all 0.3s;
-		transition:all 0.3s;
-	}
-	nav ul{
-		position:absolute;
-		right:0;
-		height:30px;
-		top:0;
-		margin: 0;
-	}
-	nav ul li{
-		display:inline-block;
-		margin:0;
-	}
-	nav ul li a{
-		font-family:cursive;
-		padding:10px;
-		background:white;
-		display:inline-block;
-		box-shadow:5px 5px 5px rgba(0,0,0,0.8);
-		-webkit-transform:rotate(-5deg);
-		-moz-transform:rotate(-5deg);
-		-ms-transform:rotate(-5deg);
-		transform:rotate(-5degs);
+<h2>Wireframes</h2>
+<p>I like creating mashups to highlight a technology. These are like mini-apps, a little unpolished but fun to build</p>
+<ul>
+	<li><a href="/graffiti">Graffiti - Image manipulation</a> An example of the FileAPI to select an image and read it into a Canvas. Draw a doodle, then download it using a FileSaver.
+	<li><a href="http://deep-planet-5370.herokuapp.com/">WebRTC Demo</a> - This uses getUserMedia and PeerConnection to capture and stream video between two clients. Its built using NodeJs with socket.io to connect two or more clients up.
+	<li><a href="http://splashysplashy.com/">SplashySplashy - Video chat and Hello.js demo</a> - I worked with a internet video communications company called TokBox in the first half of 2012. This was a demo i built.
+	<li><a href="http://browserexperiments.com/sites/Unreality/">Unreality - a Geolocation API</a> - a game to find places in the real world to unlock prizes in the virtual</a> 
+	<li><a href="http://browserexperiments.com/sites/StickMan/">SVG StickMan<a> inspired by DrawAStickMan
+</ul>
 
-		-webkit-transition:all 0.3s;
-		-moz-transition:all 0.3s;
-		-ms-transition:all 0.3s;
-		transition:all 0.3s;
-	}
-	nav ul li a:target{
-		background-color:yellow;
-	}
-	nav ul li a:hover,nav ul li a:hover{
-		-webkit-transform:translateY(-10px);
-		-moz-transform:translateY(-10px);
-		-ms-transform:translateY(-10px);
-		transform:translateY(-10px);
-	}
-	nav ul li:nth-child(odd){
-		-webkit-transform:rotate(5deg);
-		-moz-transform:rotate(5deg);
-		-ms-transform:rotate(5deg);
-		transform:rotate(5degs);
-	}
+<h2>Scripts</h2>
+<ul>
+	<li><a href="/hello.js">Hello.js</a> - An extensible SDK for OAuth 2.0 client side authentication and REST calls to service providers API's like Facebook Graph, Windows Live, Google +... etc. 
+	<li><a href="/notification.js">notification.js</a> - Shims the Notification API with the best alternatives.
+	<li><a href="http://github.com/MrSwitch/dropfile">dropfile.js</a> - Shims up IE&lt;10 to support the FileReader via a SilverLight plugin
+	<li><a href="/jquery-seadragon.js">jquery-seadragon.js</a> - Microsoft Seadragon is a large image zoomer, and this script enables there script to work on touch devices
+	<li><a href="/jquery-form.js">jquery-form.js</a> - Another shim for bringing the old browsers up to scratch with the HTML5 form. This includes a WYSIWYG editor, as used by CopyAndPasted.
+	<li><a href="/workspace.js">workspace.js</a> - A helper to make divs flexible, like the old FrameSet used to be, as seen by Toobify.com
+	<li><a href="/jquery-prompt.js">A Non-Blocking Prompt</a> - sorry, yet another jQuery plugin
+	<li> ... and <a href="http://github.com/mrswitch/">many more</a> 
+</ul>
 
-	nav:hover{
-		z-index: 10;
-		height:100px;
-		max-height:100%;
-		box-shadow:5px 5px 5px rgba(0,0,0,0.8);
-	}
-	nav:hover ul{
-		z-index:3;
-	}
 
-</style>
-
-<nav>
-	<header>
-		<img src="http://www.gravatar.com/avatar/20043d5ade315f3c25d13b18dba95bc4.png" width=30 height=30 />
-		<h1>@mr_switch's workshop</h1>
-	</header>
-	<ul>
-		<li><a id="graffiti" href="/graffiti" target="frame">Graffiti</a>
-		<li><a id="webrtc" href="http://deep-planet-5370.herokuapp.com/" target="frame">WebRTC Demo</a>
-		<li><a id="toobify" href="http://toobify.com" target="frame">Toobify.com</a>
-		<li><a id="copyandpasted" href="http://copyandpasted.com" target="frame">CopyAndPasted.com</a>
-		<li><a id="hellojs" href="/hello.js" target="frame">HelloJS</a>
-	</ul>
-</nav>
-<iframe src="/graffiti/" id="frame" name="frame"></iframe>
-<script>
-var a = document.querySelectorAll('ul a');
-for(var i=0;i<a.length;i++){
-	a[i].addEventListener('click', function(){
-		window.location.hash = this.id;
-	});
-}
-</script>
+</body>
+</html>
