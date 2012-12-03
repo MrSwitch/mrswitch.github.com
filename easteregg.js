@@ -54,9 +54,9 @@ window.requestAnimationFrame = (function(){
 		hover = true;
 		e.stopPropagation();
 	}, false);
-	img.addEventListener('click', function(e){
+	img.addEventListener('touchdown', function(e){
 		e.stopPropagation();
-//		hover = !hover;
+		hover = !hover;
 	}, false);
 	img.addEventListener('mouseout', function(){
 		hover = false;
