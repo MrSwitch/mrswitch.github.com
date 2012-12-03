@@ -50,10 +50,12 @@ window.requestAnimationFrame = (function(){
 	var hover = false;
 
 	var img = document.getElementsByTagName('img')[0];
-	img.addEventListener('mouseover', function(){
+	img.addEventListener('mouseover', function(e){
 		hover = true;
+		e.stopPropagation();
 	}, false);
-	img.addEventListener('click', function(){
+	img.addEventListener('click', function(e){
+		e.stopPropagation();
 		hover = !hover;
 	}, false);
 	img.addEventListener('mouseout', function(){
