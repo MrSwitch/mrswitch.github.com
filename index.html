@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!-- use the latest IE browser always, and optionally use chrome frame if installed -->
 <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1" />
 <link href="/_packages/document.css" rel="stylesheet" />
@@ -15,11 +16,25 @@
 		background-color:	white;
 		border:1px solid #ccc;
 		padding:5px;
-		-webkit-transform:rotate(-5deg);
-		-moz-transform:rotate(-5deg);
-		transform:rotate(-5deg);
 		box-sizing:content-box;
 		-moz-box-sizing:content-box;
+
+		-webkit-transform:rotate(-5deg);
+		-moz-transform:rotate(-5deg);
+		-ms-transform:rotate(-5deg);
+		transform:rotate(-5deg);
+
+		-webkit-transition:1s all;
+		-moz-transition:1s all;
+		-ms-transition:1s all;
+		transition:1s all;
+	}
+	blockquote img:hover{
+		-webkit-filter: saturate(5);
+		-webkit-transform:rotate(-365deg);
+		-moz-transform:rotate(-365deg);
+		-ms-transform:rotate(-365deg);
+		transform:rotate(-365deg);
 	}
 </style>
 </head>
@@ -64,6 +79,111 @@
 	<li><a href="https://github.com/MrSwitch">Github</a>
 	<li><a href="http://www.linkedin.com/in/andrewdodson">LinkedIn</a>
 </ul>
+<script>
+
+	
+	window.requestAnimationFrame = (function(){
+		return  window.requestAnimationFrame       || 
+			window.webkitRequestAnimationFrame || 
+			window.mozRequestAnimationFrame    || 
+			window.oRequestAnimationFrame      || 
+			window.msRequestAnimationFrame     || 
+			function( callback ){
+				window.setTimeout(callback, 1000 / 60);
+			};
+	})();
+
+
+	// Easter Egg
+	var radius = 500, ctx, c, opacity = 0;
+
+	if("getCSSCanvasContext" in document){
+		ctx = document.getCSSCanvasContext("2d", "sunrise", radius*2, radius*2);
+		ctx.globalAlpha = 0;
+	}
+	else {
+		radius = screen.width/2;
+		c = document.createElement('canvas'); 
+		document.body.appendChild(c); 
+		c.width=screen.width; 
+		c.height=screen.height;
+		c.style.cssText = "position:fixed;z-index:-1;top:0;left:0;";
+		c.style.opacity = 0;
+		ctx = c.getContext('2d');
+	}
+
+	var hover = false;
+
+	var img = document.getElementsByTagName('img')[0];
+	img.addEventListener('mouseover', function(){
+		hover = true;
+	}, false);
+	img.addEventListener('click', function(){
+		hover = !hover;
+	}, false);
+	img.addEventListener('mouseout', function(){
+		hover = false;
+	}, false);
+
+	var start = 0;
+
+
+	function animation(){
+
+		if(c){
+			// ensure its keeping up.
+			radius = screen.width/2;
+			c.width=screen.width; 
+			c.height=screen.height;
+		}
+
+		// Do we need this?
+		// 
+		if(hover||opacity>0){
+
+			start++;
+
+			if(hover&&opacity<1){
+				opacity += 0.1;
+			}
+			if(!hover&&opacity>0){
+				opacity -= 0.1;
+			}
+
+			if("globalAlpha" in ctx){
+				ctx.globalAlpha = opacity;
+			}
+			if(c){
+				c.style.opacity = opacity;
+			}
+
+			var slices = 32;
+			
+			ctx.clearRect ( 0 , 0 , radius*2 , radius*2 );
+
+			// draw an arc
+			var pallate = ['rgb(255, 140, 0)', 'rgb(255,0,0)', 'rgb(255,255,0)'];
+			for(var i=0;i<slices;i++){
+				ctx.beginPath();
+				ctx.fillStyle=pallate[i%pallate.length];
+				// *270 changed to *360
+				ctx.arc(radius,radius,radius*1.5,(Math.PI/180)*((i*(360/slices))+start),(Math.PI/180)*(((i+1)*(360/slices))+start),false);
+				ctx.lineTo(radius, radius);
+				ctx.fill();
+				ctx.closePath();
+			}
+		}
+
+		requestAnimationFrame(animation);
+	}
+
+	animation();
+
+	document.getElementsByTagName('html')[0].style.cssText = 'background-image: -webkit-canvas(sunrise);'
+		+'background-position: center center;'
+		+'background-repeat: no-repeat no-repeat;background-size:150% 150%;';
+
+</script>
 
 </body>
 </html>
