@@ -1,10 +1,10 @@
 // requestAnimationFrame polyfill, paul_irish
 window.requestAnimationFrame = (function(){
-	return  window.requestAnimationFrame       || 
-		window.webkitRequestAnimationFrame || 
-		window.mozRequestAnimationFrame    || 
-		window.oRequestAnimationFrame      || 
-		window.msRequestAnimationFrame     || 
+	return  window.requestAnimationFrame       ||
+		window.webkitRequestAnimationFrame ||
+		window.mozRequestAnimationFrame    ||
+		window.oRequestAnimationFrame      ||
+		window.msRequestAnimationFrame     ||
 		function( callback ){
 			window.setTimeout(callback, 1000 / 60);
 		};
@@ -15,7 +15,7 @@ window.requestAnimationFrame = (function(){
 
 //
 // Sunrise, Canvas annimation
-// 
+//
 // CopyRight Andrew Dodson, 2012
 //
 (function sunrise(){
@@ -30,17 +30,17 @@ window.requestAnimationFrame = (function(){
 	if("getCSSCanvasContext" in document){
 		ctx = document.getCSSCanvasContext("2d", "sunrise", radius*2, radius*2);
 
-		document.getElementsByTagName('html')[0].style.cssText = 'background-image: -webkit-canvas(sunrise);'
-			+'background-position: center center;'
-			+'background-repeat: no-repeat no-repeat;background-size:150% 150%;';
+		document.getElementsByTagName('html')[0].style.cssText = 'background-image: -webkit-canvas(sunrise);'+
+		'background-position: center center;'+
+		'background-repeat: no-repeat no-repeat;background-size:150% 150%;';
 
 		ctx.globalAlpha = 0;
 	}
 	else {
 		radius = screen.width/2;
-		c = document.createElement('canvas'); 
-		document.body.appendChild(c); 
-		c.width=screen.width; 
+		c = document.createElement('canvas');
+		document.body.appendChild(c);
+		c.width=screen.width;
 		c.height=screen.height;
 		c.style.cssText = "position:fixed;z-index:-1;top:0;left:0;";
 		c.style.opacity = 0;
@@ -64,34 +64,41 @@ window.requestAnimationFrame = (function(){
 
 	var start = 0;
 
+	function visibility(i){
+
+		opacity += i;
+
+		opacity = Math.round(opacity*10)/10;
+
+		if("globalAlpha" in ctx){
+			// calling globalAlpha in Chrome too many times crashes... interesting
+			ctx.globalAlpha = opacity;
+		}
+		if(c){
+			c.style.opacity = opacity;
+		}
+	}
 
 	function animation(){
 
 		if(c){
 			// ensure its keeping up.
 			radius = screen.width/2;
-			c.width=screen.width; 
+			c.width=screen.width;
 			c.height=screen.height;
 		}
 
 		// Do we need this?
-		// 
+		//
 		if(hover||opacity>0){
 
 			start++;
 
 			if(hover&&opacity<1){
-				opacity += 0.1;
+				visibility(0.1);
 			}
 			if(!hover&&opacity>0){
-				opacity -= 0.1;
-			}
-
-			if("globalAlpha" in ctx){
-				ctx.globalAlpha = opacity;
-			}
-			if(c){
-				c.style.opacity = opacity;
+				visibility(-0.1);
 			}
 
 			var slices = 32;
