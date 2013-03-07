@@ -12,7 +12,6 @@ window.requestAnimationFrame = (function(){
 
 
 
-
 //
 // Sunrise, Canvas annimation
 //
@@ -30,7 +29,7 @@ window.requestAnimationFrame = (function(){
 	if("getCSSCanvasContext" in document){
 		ctx = document.getCSSCanvasContext("2d", "sunrise", radius*2, radius*2);
 
-		document.getElementsByTagName('html')[0].style.cssText = 'background-image: -webkit-canvas(sunrise);'+
+		document.documentElement.style.cssText = 'background-image: -webkit-canvas(sunrise);'+
 		'background-position: center center;'+
 		'background-repeat: no-repeat no-repeat;background-size:150% 150%;';
 
@@ -46,6 +45,15 @@ window.requestAnimationFrame = (function(){
 		c.style.opacity = 0;
 		ctx = c.getContext('2d');
 	}
+
+	// Add custom styles
+	var style = document.createElement('style');
+//	style.innerText = style.innerHTML = "html.animating *:not(canvas){-webkit-transform: rotate(360deg);-webkit-transition:all 10s;-moz-transform: rotate(360deg);-moz-transition:all 10s;-ms-transform: rotate(360deg);-ms-transition:all 10s;transform: rotate(360deg);transition:all 10s;background-color:rgba(0,0,0,0.1)}";
+	style.innerText = style.innerHTML = "html.animating *:not(canvas){background-color:rgba(0,0,0,0.1)}";
+	document.body.appendChild(style);
+
+
+	// Add events
 
 	var hover = false;
 
@@ -87,6 +95,9 @@ window.requestAnimationFrame = (function(){
 			c.width=screen.width;
 			c.height=screen.height;
 		}
+
+		// Update document.
+		window.document.documentElement.className = hover ? "animating" : "";
 
 		// Do we need this?
 		//
