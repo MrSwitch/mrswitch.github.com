@@ -74,60 +74,63 @@ window.requestAnimationFrame = (function(){
 
 	function animation(){
 
-		if(c.width!==screen.width||c.height!==screen.height){
+		if(c.width!==window.innerWidth||c.height!==window.innerHeight){
 
 			// ensure its keeping up.
-			c.width=screen.width;
-			c.height=screen.height;
+			c.width=window.innerWidth;
+			c.height=window.innerHeight;
 
 			if(!(c instanceof HTMLCanvasElement)){
 				ctx = document.getCSSCanvasContext("2d", "sunrise", c.width, c.height);
 			}
 		}
 
-		ctx.clearRect ( 0 , 0 , c.width, c.height );
+		// Check that the background is shown
+		if(window.getComputedStyle&&(parseInt(getComputedStyle(document.body).width,10)+50)<window.innerWidth){
+			ctx.clearRect ( 0 , 0 , c.width, c.height );
 
-		var radius = 50;
+			var radius = 50;
 
-		// draw variant background
-		var h,w;
-		w = h = 20;
-		var nx = Math.floor(c.width/w);
-		var ny = Math.floor(c.height/h);
-		for(var i=0;i<nx;i++){
-			for(var j=0;j<ny;j++){
+			// draw variant background
+			var h,w;
+			w = h = 20;
+			var nx = Math.floor(c.width/w);
+			var ny = Math.floor(c.height/h);
+			for(var i=0;i<nx;i++){
+				for(var j=0;j<ny;j++){
 
-				var tile = tiles[((i*nx)+j)];
+					var tile = tiles[((i*nx)+j)];
 
-				// %100
+					// %100
 
-				if(!tile){
-					tile = new Tile();
-					tiles.push(tile);
+					if(!tile){
+						tile = new Tile();
+						tiles.push(tile);
+					}
+
+	//				console.log("rgba(0,0,0,"+tile.opacity()+")");
+					// is the tile near the mouse
+
+					if( mouse &&
+						Math.abs(mouse.clientX-(i*w)) < radius &&
+						Math.abs(mouse.clientY-(j*h)) < radius &&
+						(Math.pow(mouse.clientX-(i*w),2)+Math.pow(mouse.clientY-(j*h),2) < Math.pow(radius,2) ) ){
+
+						var dx = mouse.clientX-(i*w);
+						var dy = mouse.clientY-(j*h);
+
+						tile.translate(0.3 * (Math.abs(dx)/dx) * -( radius - Math.abs(dx) ),
+										0.3 * (Math.abs(dy)/dy) * -( radius - Math.abs(dy) ) );
+					}
+
+					tile.x = (i*w) +1;
+					tile.y = (j*h) +1;
+					tile.w = w-1;
+					tile.h = h-1;
+
+					tile.draw(ctx);
+					tile.getNew();
 				}
-
-//				console.log("rgba(0,0,0,"+tile.opacity()+")");
-				// is the tile near the mouse
-
-				if( mouse &&
-					Math.abs(mouse.clientX-(i*w)) < radius &&
-					Math.abs(mouse.clientY-(j*h)) < radius &&
-					(Math.pow(mouse.clientX-(i*w),2)+Math.pow(mouse.clientY-(j*h),2) < Math.pow(radius,2) ) ){
-
-					var dx = mouse.clientX-(i*w);
-					var dy = mouse.clientY-(j*h);
-
-					tile.translate(0.3 * (Math.abs(dx)/dx) * -( radius - Math.abs(dx) ),
-									0.3 * (Math.abs(dy)/dy) * -( radius - Math.abs(dy) ) );
-				}
-
-				tile.x = (i*w) +1;
-				tile.y = (j*h) +1;
-				tile.w = w-1;
-				tile.h = h-1;
-
-				tile.draw(ctx);
-				tile.getNew();
 			}
 		}
 
