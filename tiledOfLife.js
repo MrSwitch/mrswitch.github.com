@@ -72,7 +72,17 @@ window.requestAnimationFrame = (function(){
 
 	var tiles = [];
 
+	var time = (new Date()).getTime();
+		fps=0;
+
 	function animation(){
+
+		fps++;
+		if(((new Date()).getTime()-time)>1000){
+			console.log("FPS:"+fps);
+			time = (new Date()).getTime();
+			fps=0;
+		}
 
 		if(c.width!==window.innerWidth||c.height!==window.innerHeight){
 
@@ -93,7 +103,7 @@ window.requestAnimationFrame = (function(){
 
 			// draw variant background
 			var h,w;
-			w = h = 20;
+			w = h = 40;
 			var nx = Math.floor(c.width/w);
 			var ny = Math.floor(c.height/h);
 			for(var i=0;i<nx;i++){
@@ -140,9 +150,16 @@ window.requestAnimationFrame = (function(){
 	// Create a new tile
 	function Tile(){
 		var n = 100;
+
 		this.i = Math.round(Math.random()*n);
+		this.ascending = !Math.round(Math.random());
 		this.dx = 0;
 		this.dy = 0;
+		this.x = 0;
+		this.y = 0;
+		this.w = 0;
+		this.h = 0;
+
 		this.translate = function(dx,dy){
 			// sometimes we get a NaN, catch and set those
 			if(!dx){
@@ -157,7 +174,6 @@ window.requestAnimationFrame = (function(){
 		this.opacity = function(){
 			return this.i?this.i/n:0;
 		};
-		this.ascending = !Math.round(Math.random());
 		this.getNew = function(){
 
 			if(this.i<=0){
