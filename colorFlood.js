@@ -22,6 +22,7 @@ window.requestAnimationFrame = (function(){
 		return;
 	}
 
+	var canvas;
 	var c, ctx;
 
 	document.documentElement.style.cssText = [
@@ -31,9 +32,9 @@ window.requestAnimationFrame = (function(){
 		'background-attachment: fixed'
 	].join(';');
 
-
 	if("getCSSCanvasContext" in document){
 
+		canvas = document.documentElement;
 		document.documentElement.style.cssText = [
 			'background-color:white',
 			'background-image: -webkit-canvas(colorflood)',
@@ -51,6 +52,7 @@ window.requestAnimationFrame = (function(){
 	}
 	else {
 		c = document.createElement('canvas');
+		canvas = c;
 		document.body.insertBefore(c,document.body.firstElementChild);
 		c.width=window.innerWidth;
 		c.height=window.innerHeight;
@@ -58,11 +60,9 @@ window.requestAnimationFrame = (function(){
 		ctx = c.getContext('2d');
 	}
 
-	var clicks = 0,
-		flooded = 1,
-		selectedColor = null,
-		tiles = [];
-
+	var clicks,
+		flooded,
+		selectedColor;
 
 	/******************************************
 	 *
@@ -82,46 +82,46 @@ window.requestAnimationFrame = (function(){
 	 * * Data
 	 ******************************************/
 
-	collection = [];
+	var collection = [],
+		tiles = [];
 
-	// set tile default Width and height
+
 	var h,w;
-	w = h = 50;
-
-	// set number of tiles horizontally and vertically
-	var nx = Math.floor(c.width/w);
-	var ny = Math.floor(c.height/h);
-
-	// Do the tiles not perfectly fit the space?
-	// split the difference between the tiles, adding to the widths and heights
-	w += parseInt((c.width%(nx*w))/nx,10);
-	h += parseInt((c.height%(ny*h))/ny,10);
+	var nx;
+	var ny;
 
 
-	// Create tiles
-	for(var y=0;y<ny;y++){
-		for(var x=0;x<nx;x++){
-
-			var tile = new Tile(x*w,y*h,w-1,h-1);
-			tiles.push(tile);
-			tile.gridX = x;
-			tile.gridY = y;
-		}
-	}
-
-
-	// Starting state
-	// Select the first tile, (top left corner)
-	// Mark as flooded
-	tiles[0].flooded = true;
-	// Flood its neighbouring tiles on start
-	selectedTile(0,0);
-
+	// Setup all the tiles
+	setup(true);
 
 	// Add a text Object
 	// We only have one text Object on the screen at a time, lets reuse it.
-	var text = new TextObject();
+	var	text = new TextObject();
 	text.write("Flood It", "center center", 150);
+
+
+	// Is this playing as a background image?
+	// We want to display a button to enable playing in full screen.
+	var play = new TextObject();
+	play.write("PLAY", "left bottom", 20);
+	play.addEventListener('mousedown', function(){
+
+		document.body.style.webkitTransition = "left 1s";
+		document.body.style.mozTransition = "left 1s";
+		document.body.style.msTransition = "left 1s";
+		document.body.style.transition = "left 1s";
+		document.body.style.position = "absolute";
+		document.body.style.left = "-3000px";
+
+		if(play.text === "RESET"){
+			text.write("Flood It", "center center", 150);
+			setup();
+		}
+		else{
+			play.write("RESET", "left botton", 30);
+		}
+	},false);
+
 
 
 	/******************************************
@@ -131,14 +131,41 @@ window.requestAnimationFrame = (function(){
 	 ******************************************/
 
 	// Add events
-	var doc = document.documentElement;
-	doc.addEventListener('mousedown', function(e){
-		selectedTile(e.clientX,e.clientY);
+	canvas.addEventListener('mousedown', function(e){
+		console.log(e.target);
+		if(e.target!==canvas){
+			return;
+		}
+		gamePlay(e.clientX,e.clientY);
+		triggerEvent(e);
 	}, false);
 
-	doc.addEventListener('touchdown', function(e){
-		selectedTile(e.touches[0].clientX,e.touches[0].clientY);
+	canvas.addEventListener('touchdown', function(e){
+		if(e.target!==canvas){
+			return;
+		}
+		gamePlay(e.touches[0].clientX,e.touches[0].clientY);
+		triggerEvent(e);
 	}, false);
+
+
+	function triggerEvent(e){
+		//
+		// Using the XY cords lets see which elements intersect at that position
+		var obj = {
+			x: e.clientX,
+			y: e.clientY,
+			w: 1,
+			h: 1
+		};
+		for(var i=0;i<collection.length;i++){
+			// Does the element have any event listeners?
+			if((e.type in collection[i].events) && intersect(obj,collection[i]) ){
+				collection[i].dispatchEvent(e);
+			}
+		}
+	}
+
 
 /*
 	function userPlay(x,y){
@@ -149,17 +176,73 @@ window.requestAnimationFrame = (function(){
 	(function automate(){
 		if(!clicks){
 			selectedTile(Math.random()*c.width,Math.random()*c.height);
-			setTimeout(automate,1000);
+			setTimeout(automate, 1000);
 		}
 	})();
 */
 
-	function selectedTile(x,y){
+	function setup(firsttime){
 
+		clicks = 0;
+		flooded = 1;
+		selectedColor = null;
+
+		tiles.length = 0;
+		collection.length = 0;
+
+
+		// Define type size
+		// set tile default Width and height
+		w = h = 50;
+
+		// set number of tiles horizontally and vertically
+		nx = Math.floor(c.width/w);
+		ny = Math.floor(c.height/h);
+
+		// Do the tiles not perfectly fit the space?
+		// split the difference between the tiles, adding to the widths and heights
+		w += parseInt((c.width%(nx*w))/nx,10);
+		h += parseInt((c.height%(ny*h))/ny,10);
+
+
+		// Create tiles
+		for(var y=0;y<ny;y++){
+			for(var x=0;x<nx;x++){
+
+				var tile = new Tile(x*w,y*h,w-1,h-1);
+				tiles.push(tile);
+				tile.gridX = x;
+				tile.gridY = y;
+			}
+		}
+
+
+		// Starting state
+		// Select the first tile, (top left corner)
+		// Mark as flooded
+		tiles[0].flooded = true;
+
+		// Flood its neighbouring tiles on start
+		tileClick(0,0);
+
+		if(!firsttime){
+			collection.push(text);
+			collection.push(play);
+			text.touched = true;
+			play.touched = true;
+		}
+	}
+
+
+	function tileClick(x,y){
 		var i = Math.floor(x/w,10),
 			j = Math.floor(y/h,10);
 
 		var tile = tiles[(nx * j) + i];
+		if(!tile){
+			return;
+		}
+
 		selectedColor = tile.color;
 
 		// Trigger Flooding
@@ -171,17 +254,18 @@ window.requestAnimationFrame = (function(){
 				flood(tile);
 			}
 		}
+	}
+
+	function gamePlay(x,y){
+
+		tileClick(x,y);
 
 		// Has the game state changed?
 		if(flooded>=(nx*ny)){
-			text.write("Game finished in " + clicks + " moves", "center center", 150);
+			text.write("Kudos! " + clicks + " moves", "center center", 150);
 		}
 		else{
-			if(clicks++){
-				text.write(clicks, "right bottom", 50);
-			} else if(!clicks){
-				text.write("Flood It", "center center", 150);
-			}
+			text.write(++clicks, "right bottom", 50);
 		}
 	}
 
@@ -316,6 +400,29 @@ window.requestAnimationFrame = (function(){
 			}
 		};
 
+		// Events
+		// Assign Events to be fired when the user clicks this object
+		// Awesome
+		this.events = {};
+		this.addEventListener = function(eventName, callback){
+			if(!(eventName in this.events)){
+				this.events[eventName] = [];
+			}
+			this.events[eventName].push(callback);
+		};
+
+		this.dispatchEvent = function(e){
+			if(!(e.type in this.events)){
+				return;
+			}
+			var a = this.events[e.type];
+			for(var i=0;i<a.length;i++){
+				a[i](e);
+			}
+		};
+
+
+		// Collect
 		// Add to the collection
 		collection.push(this);
 	}
@@ -389,19 +496,20 @@ window.requestAnimationFrame = (function(){
 			ctx.save();
 
 			ctx.shadowColor = "black";
-			ctx.shadowBlur = 10;
 			ctx.fillStyle="black";
 			ctx.strokeStyle="rgba(255,255,255,0.5)";
 			ctx.font= fontSize + "px Arial bold";
 
 			while(ctx.measureText(text).width>canvas.width){
-				fontSize -= 10;
-				ctx.font= fontSize + "px Arial bold";
+				fontSize *= 0.9;
+				fontSize = Math.round(fontSize);
+				ctx.font = fontSize + "px Arial bold";
 			}
+			this.shadowBlur = ctx.shadowBlur = Math.round(fontSize/10);
 			this.font = ctx.font;
 
-			this.w = ctx.measureText(text).width + (ctx.shadowBlur*2);
-			this.h = fontSize + (ctx.shadowBlur*2);
+			this.w = ctx.measureText(text).width + (this.shadowBlur*2);
+			this.h = fontSize + (this.shadowBlur*2);
 
 			ctx.restore();
 
@@ -411,7 +519,7 @@ window.requestAnimationFrame = (function(){
 
 			this.textAlign=align.split(" ")[0];
 			this.textBaseline=align.split(" ")[1];
-			this.lineWidth=fontSize/20;
+			this.lineWidth=Math.floor(fontSize/30);
 
 
 			// HEIGHT and WIDTH
@@ -458,7 +566,7 @@ window.requestAnimationFrame = (function(){
 			ctx.save();
 
 			ctx.shadowColor = "black";
-			ctx.shadowBlur = 10;
+			ctx.shadowBlur = this.shadowBlur;
 			ctx.fillStyle="black";
 			ctx.strokeStyle="white";
 			ctx.font = this.font;
