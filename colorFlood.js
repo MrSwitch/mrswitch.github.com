@@ -75,6 +75,32 @@ window.requestAnimationFrame = (function(){
 
 	/******************************************
 	 *
+	 *  Add event to the document to toggle display
+	 *
+	 ******************************************/
+
+	var escape = document.getElementById('escape');
+	escape.addEventListener('click', togglePlay,false);
+
+	var fullscreen = false;
+	function togglePlay(){
+		if(fullscreen){
+			document.body.style.position = "static";
+			document.body.style.left = "0";
+		}else{
+			document.body.style.webkitTransition = "left 1s";
+			document.body.style.mozTransition = "left 1s";
+			document.body.style.msTransition = "left 1s";
+			document.body.style.transition = "left 1s";
+			document.body.style.position = "absolute";
+			document.body.style.left = "-3000px";
+		}
+		fullscreen = !fullscreen;
+	}
+
+
+	/******************************************
+	 *
 	 *  Build Canvas Object Collection
 	 * * Tiles
 	 * * Data
@@ -101,21 +127,15 @@ window.requestAnimationFrame = (function(){
 	// Is this playing as a background image?
 	// We want to display a button to enable playing in full screen.
 	var play = new TextObject();
-	play.write("PLAY", "left bottom", 20);
+	play.write("ESCAPE", "left bottom", 20);
 	play.addEventListener('mousedown', function(){
-
-		document.body.style.webkitTransition = "left 1s";
-		document.body.style.mozTransition = "left 1s";
-		document.body.style.msTransition = "left 1s";
-		document.body.style.transition = "left 1s";
-		document.body.style.position = "absolute";
-		document.body.style.left = "-3000px";
 
 		if(play.text === "RESET"){
 			text.write("Flood It", "center center", 150);
 			setup();
 		}
 		else{
+			togglePlay();
 			play.write("RESET", "left botton", 30);
 		}
 	},false);
@@ -133,11 +153,11 @@ window.requestAnimationFrame = (function(){
 		if(e.target!==canvas){
 			return;
 		}
+
 		// Has the user has pressed escape
 		// Lets bring back the body
 		if(e.keyCode===27){
-			document.body.style.position = "static";
-			document.body.style.left = "0";
+			togglePlay();
 		}
 
 	}, false);
@@ -330,7 +350,7 @@ window.requestAnimationFrame = (function(){
 		}
 
 		// Check that the background is shown
-		if(document.body&&window.getComputedStyle&&(parseInt(getComputedStyle(document.body).width,10)+50)<window.innerWidth){
+		if(fullscreen || (document.body&&window.getComputedStyle&&(parseInt(getComputedStyle(document.body).width,10)+50)<window.innerWidth)){
 
 			// Find items that have changed
 			// Remove background
