@@ -13,7 +13,7 @@ window.requestAnimationFrame = (function(){
 
 //
 // ColorFlood, Canvas annimation
-// CopyRight Andrew Dodson, March 2013
+// Copyright Andrew Dodson, March 2013
 //
 (function colorFlood(){
 
@@ -79,12 +79,15 @@ window.requestAnimationFrame = (function(){
 	 *
 	 ******************************************/
 
-	var escape = document.getElementById('escape');
-	escape.addEventListener('click', togglePlay,false);
+	function togglePlay(){
+		window.location.hash = (window.location.hash === "#escape" ? '' : 'escape');
+	}
 
 	var fullscreen = false;
-	function togglePlay(){
-		if(fullscreen){
+	function hashchange(){
+		fullscreen = (window.location.hash === "#escape");
+
+		if(!fullscreen){
 			document.body.style.position = "static";
 			document.body.style.left = "0";
 		}else{
@@ -95,8 +98,27 @@ window.requestAnimationFrame = (function(){
 			document.body.style.position = "absolute";
 			document.body.style.left = "-3000px";
 		}
-		fullscreen = !fullscreen;
 	}
+
+	window.addEventListener('hashchange', hashchange,false);
+	hashchange();
+
+
+	// Press ESC
+	// Add this to the canvas
+	canvas.addEventListener('keydown', function(e){
+		if(e.target!==canvas){
+			return;
+		}
+		// Has the user has pressed escape
+		// Lets bring back the body
+		if(e.keyCode===27){
+			togglePlay();
+		}
+
+	}, false);
+
+
 
 
 	/******************************************
@@ -144,23 +166,9 @@ window.requestAnimationFrame = (function(){
 
 	/******************************************
 	 *
-	 *  Add Events
+	 *  Add Events, to listen to in game play
 	 *
 	 ******************************************/
-
-	// Add events
-	canvas.addEventListener('keydown', function(e){
-		if(e.target!==canvas){
-			return;
-		}
-
-		// Has the user has pressed escape
-		// Lets bring back the body
-		if(e.keyCode===27){
-			togglePlay();
-		}
-
-	}, false);
 
 	canvas.addEventListener('mousedown', function(e){
 		console.log(e.target);
