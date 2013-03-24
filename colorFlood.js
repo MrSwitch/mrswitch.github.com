@@ -27,20 +27,17 @@ window.requestAnimationFrame = (function(){
 
 	document.documentElement.style.cssText = [
 		'background-color:white',
-		'background-size:100%',
+		'background-repeat: no-repeat',
 		'background-position: top left',
 		'background-attachment: fixed'
 	].join(';');
 
+
 	if("getCSSCanvasContext" in document){
 
 		canvas = document.documentElement;
-		document.documentElement.style.cssText = [
-			'background-color:white',
-			'background-image: -webkit-canvas(colorflood)',
-			'background-position: top left',
-			'background-attachment: fixed'
-		].join(';');
+		canvas.setAttribute('tabindex',0);
+		document.documentElement.style.backgroundImage = '-webkit-canvas(colorflood)';
 
 		c = {
 			width:window.innerWidth,
@@ -57,6 +54,7 @@ window.requestAnimationFrame = (function(){
 		c.width=window.innerWidth;
 		c.height=window.innerHeight;
 		c.style.cssText = "position:fixed;z-index:-1;top:0;left:0;";
+		c.setAttribute('tabindex',0);
 		ctx = c.getContext('2d');
 	}
 
@@ -131,6 +129,19 @@ window.requestAnimationFrame = (function(){
 	 ******************************************/
 
 	// Add events
+	canvas.addEventListener('keydown', function(e){
+		if(e.target!==canvas){
+			return;
+		}
+		// Has the user has pressed escape
+		// Lets bring back the body
+		if(e.keyCode===27){
+			document.body.style.position = "static";
+			document.body.style.left = "0";
+		}
+
+	}, false);
+
 	canvas.addEventListener('mousedown', function(e){
 		console.log(e.target);
 		if(e.target!==canvas){
@@ -201,9 +212,8 @@ window.requestAnimationFrame = (function(){
 
 		// Do the tiles not perfectly fit the space?
 		// split the difference between the tiles, adding to the widths and heights
-		w += parseInt((c.width%(nx*w))/nx,10);
-		h += parseInt((c.height%(ny*h))/ny,10);
-
+		w += Math.floor((c.width%(nx*w))/nx);
+		h += Math.floor((c.height%(ny*h))/ny);
 
 		// Create tiles
 		for(var y=0;y<ny;y++){
@@ -258,14 +268,18 @@ window.requestAnimationFrame = (function(){
 
 	function gamePlay(x,y){
 
+		// Tile Clicked
 		tileClick(x,y);
 
 		// Has the game state changed?
-		if(flooded>=(nx*ny)){
-			text.write("Kudos! " + clicks + " moves", "center center", 150);
+		if(flooded>=(nx*ny)&&clicks<(nx+ny)){
+			text.write("Kudos! " + (clicks+1) + " moves", "center center", 150);
+		}
+		else if(++clicks>=(nx+ny)){
+			text.write("Game over!", "center center", 150);
 		}
 		else{
-			text.write(++clicks, "right bottom", 50);
+			text.write(clicks + "/" + (nx+ny), "right bottom", 50);
 		}
 	}
 
