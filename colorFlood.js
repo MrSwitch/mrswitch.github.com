@@ -173,20 +173,20 @@ window.requestAnimationFrame = (function(){
 	 ******************************************/
 
 	canvas.addEventListener('mousedown', function(e){
-		e.preventDefault();
 		console.log(e.target);
 		if(e.target!==canvas){
 			return;
 		}
+		e.preventDefault();
 		gamePlay(e.clientX,e.clientY);
 		triggerEvent(e);
 	}, false);
 
 	canvas.addEventListener('touchstart', function(e){
-		e.preventDefault();
 		if(e.target!==canvas){
 			return;
 		}
+		e.preventDefault();
 		gamePlay(e.touches[0].clientX,e.touches[0].clientY);
 		triggerEvent(e);
 	}, false);
