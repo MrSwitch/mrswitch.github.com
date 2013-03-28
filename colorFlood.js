@@ -149,17 +149,19 @@ window.requestAnimationFrame = (function(){
 	// Is this playing as a background image?
 	// We want to display a button to enable playing in full screen.
 	var play = new TextObject();
-	play.write("ESCAPE", "left bottom", 20);
-	play.addEventListener('mousedown', function(){
+	play.write("►", "left top", 40);
+	play.addEventListener('mousedown', function(e){
 
-		if(play.text === "RESET"){
+		if(window.location.hash.match(/#escape/)){
 			text.write("Flood It", "center center", 150);
 			setup();
 		}
 		else{
 			togglePlay();
-			play.write("RESET", "left botton", 30);
 		}
+
+		e.preventDefault();
+
 	},false);
 
 
@@ -171,6 +173,7 @@ window.requestAnimationFrame = (function(){
 	 ******************************************/
 
 	canvas.addEventListener('mousedown', function(e){
+		e.preventDefault();
 		console.log(e.target);
 		if(e.target!==canvas){
 			return;
@@ -179,7 +182,8 @@ window.requestAnimationFrame = (function(){
 		triggerEvent(e);
 	}, false);
 
-	canvas.addEventListener('touchdown', function(e){
+	canvas.addEventListener('touchstart', function(e){
+		e.preventDefault();
 		if(e.target!==canvas){
 			return;
 		}
@@ -323,7 +327,7 @@ window.requestAnimationFrame = (function(){
 		// Not sure how optimal this is but hey it look
 		tile.touch();
 		// find all tiles next to this one.
-		var edgeTiles = [((y-1)*nx)+x, (y*nx)+x+1, ((y+1)*nx)+x, (y*nx)+x-1];
+		var edgeTiles = [(Math.max(y-1,0)*nx)+x, (y*nx)+Math.min(x+1,nx-1), ((Math.min(y+1,ny-1))*nx)+x, (y*nx)+Math.max(x-1,0)];
 
 		for(var k=0;k<edgeTiles.length;k++){
 			if(edgeTiles[k]>0&&tiles[edgeTiles[k]]){
@@ -520,7 +524,7 @@ window.requestAnimationFrame = (function(){
 
 		// Parent Object
 		// iniially we dont know the shape of the text until we apply content too it.
-		CanvasShape.apply(this, [null,null,null,null]);
+		CanvasShape.apply(this);
 
 		// Define the text and the alignment of the object
 		this.write = function(text, align, fontSize){
