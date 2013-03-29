@@ -99,13 +99,18 @@ window.requestAnimationFrame = (function(){
 		if(window.getComputedStyle&&(parseInt(getComputedStyle(document.body).width,10)+50)<window.innerWidth){
 			ctx.clearRect ( 0 , 0 , c.width, c.height );
 
-			var radius = 50;
+			var radius = 80;
 
 			// draw variant background
 			var h,w;
 			w = h = 40;
+
 			var nx = Math.floor(c.width/w);
 			var ny = Math.floor(c.height/h);
+
+			w += Math.floor((c.width%(nx*w))/nx);
+			h += Math.floor((c.height%(ny*h))/ny);
+
 			for(var i=0;i<nx;i++){
 				for(var j=0;j<ny;j++){
 

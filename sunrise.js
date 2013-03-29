@@ -27,6 +27,9 @@ window.requestAnimationFrame = (function(){
 	var radius = 500, ctx, c, opacity = 0;
 
 	if("getCSSCanvasContext" in document){
+
+		c = document.documentElement;
+
 		ctx = document.getCSSCanvasContext("2d", "sunrise", radius*2, radius*2);
 
 		document.documentElement.style.cssText = 'background-image: -webkit-canvas(sunrise);'+
@@ -51,6 +54,17 @@ window.requestAnimationFrame = (function(){
 //	style.innerText = style.innerHTML = "html.animating *:not(canvas){-webkit-transform: rotate(360deg);-webkit-transition:all 10s;-moz-transform: rotate(360deg);-moz-transition:all 10s;-ms-transform: rotate(360deg);-ms-transition:all 10s;transform: rotate(360deg);transition:all 10s;background-color:rgba(0,0,0,0.1)}";
 	style.innerText = style.innerHTML = "html.animating *:not(canvas){background-color:rgba(0,0,0,0.1)}";
 	document.body.appendChild(style);
+
+
+	c.addEventListener("mouseover", function(e){
+		if(e.target === c){
+			hover = true;
+		}
+	});
+
+	c.addEventListener("mouseout", function(e){
+		hover = false;
+	});
 
 
 	// Add events
@@ -82,14 +96,14 @@ window.requestAnimationFrame = (function(){
 			// calling globalAlpha in Chrome too many times crashes... interesting
 			ctx.globalAlpha = opacity;
 		}
-		if(c){
+		if( c instanceof HTMLCanvasElement ){
 			c.style.opacity = opacity;
 		}
 	}
 
 	function animation(){
 
-		if(c){
+		if(c instanceof HTMLCanvasElement ){
 			// ensure its keeping up.
 			radius = screen.width/2;
 			c.width=screen.width;
