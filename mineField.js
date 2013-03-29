@@ -281,9 +281,18 @@ window.requestAnimationFrame = (function(){
 			j = Math.floor(y/h,10);
 
 		var tile = tiles[(nx * j) + i];
+
 		if(!tile){
 			return true;
 		}
+
+		// If this is the first time the game has been played, 
+		// flooded will equal 0
+		if(flooded===0){
+			// Ensure this is not a mine
+			tile.mine = false;
+		}
+
 
 		// Trigger Flooding
 		// Check to see it this tile has been exposed before?
