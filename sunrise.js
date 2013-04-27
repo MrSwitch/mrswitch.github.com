@@ -32,9 +32,13 @@ window.requestAnimationFrame = (function(){
 
 		ctx = document.getCSSCanvasContext("2d", "sunrise", radius*2, radius*2);
 
-		document.documentElement.style.cssText = 'background-image: -webkit-canvas(sunrise);'+
-		'background-position: center center;'+
-		'background-repeat: no-repeat no-repeat;background-size:150% 150%;';
+		document.documentElement.style.cssText = [
+			'background-image: -webkit-canvas(sunrise)',
+			'background-position: center center',
+			'background-repeat: no-repeat no-repeat',
+			'background-size:cover',
+			'background-attachment:fixed'
+		].join(';');
 
 		ctx.globalAlpha = 0;
 	}
@@ -72,17 +76,19 @@ window.requestAnimationFrame = (function(){
 	var hover = false;
 
 	var img = document.getElementsByTagName('img')[0];
-	img.addEventListener('mouseover', function(e){
-		hover = true;
-		e.stopPropagation();
-	}, false);
-	img.addEventListener('touchdown', function(e){
-		e.stopPropagation();
-		hover = !hover;
-	}, false);
-	img.addEventListener('mouseout', function(){
-		hover = false;
-	}, false);
+	if(img){
+		img.addEventListener('mouseover', function(e){
+			hover = true;
+			e.stopPropagation();
+		}, false);
+		img.addEventListener('touchdown', function(e){
+			e.stopPropagation();
+			hover = !hover;
+		}, false);
+		img.addEventListener('mouseout', function(){
+			hover = false;
+		}, false);
+	}
 
 	var start = 0;
 

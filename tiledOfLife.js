@@ -34,12 +34,13 @@ window.requestAnimationFrame = (function(){
 	].join(';');
 
 
-	if("getCSSCanvasContext" in document){
+	if(false&&"getCSSCanvasContext" in document){
 
 		document.documentElement.style.cssText = [
 			'background-color:white',
 			'background-image: -webkit-canvas(sunrise)',
 			'background-position: top left',
+			'background-size:100%',
 			'background-attachment: fixed'
 		].join(';');
 

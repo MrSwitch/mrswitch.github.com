@@ -31,6 +31,7 @@ window.requestAnimationFrame = (function(){
 		'background-color:white',
 		'background-repeat: no-repeat',
 		'background-position: top left',
+		'background-size:100%',
 		'background-attachment: fixed'
 	].join(';');
 

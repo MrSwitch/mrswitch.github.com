@@ -27,6 +27,7 @@ window.requestAnimationFrame = (function(){
 
 	document.documentElement.style.cssText = [
 		'background-color:white',
+		'background-size:100%',
 		'background-repeat: no-repeat',
 		'background-position: top left',
 		'background-attachment: fixed'
