@@ -24,10 +24,10 @@
 		-ms-transform:rotate(-5deg);
 		transform:rotate(-5deg);
 
-		-webkit-transition:1s all;
-		-moz-transition:1s all;
-		-ms-transition:1s all;
-		transition:1s all;
+		-webkit-transition:-webkit-transform 1s;
+		-moz-transition:-moz-transform 1s;
+		-ms-transition:-ms-transform 1s;
+		transition:transform 1s;
 	}
 	blockquote img:hover{
 		-webkit-filter: saturate(5);
@@ -62,7 +62,8 @@
 
 <h2>Open-Source Tools</h2>
 <ul>
-	<li><a href="/hello.js">Hello.js</a> - An OAuth 2.0 client and REST SDK. Connect to Facebook Graph, Windows Live, Google +... etc. with one easy agnostic interface. 
+	<li><a href="/hello.js">Hello.js</a> - An OAuth 2.0 client and REST SDK. Connect to Facebook Graph, Windows Live, Google +... etc. with one easy agnostic interface. Used with //auth-server for OAuth 1.0 and 1.0a authentication too.
+	<li><a href="https://auth-server.herokuapp.com/">// Auth Server</a> - provides a "shim" service for clientside web apps adopting serverside OAuth2 and OAuth1 authentication. Compliments HelloJS.
 	<li><a href="/peer.js">Peer.js</a> - A WebRTC wrapping API makes handling connections a doddle, as used by SplashySplashy.
 	<li><a href="/notification.js">notification.js</a> - Shims the Notification API with the best alternatives.
 	<li><a href="http://github.com/MrSwitch/dropfile">dropfile.js</a> - Shims up IE&lt;10 to support the FileReader via a SilverLight plugin
