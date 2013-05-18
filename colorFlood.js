@@ -175,7 +175,7 @@ window.requestAnimationFrame = (function(){
 
 	canvas.addEventListener('mousedown', function(e){
 		console.log(e.target);
-		if(e.target!==canvas){
+		if(e.target!==canvas||e.clientX>(e.target.clientWidth+e.target.clientLeft)){
 			return;
 		}
 		e.preventDefault();
@@ -184,11 +184,14 @@ window.requestAnimationFrame = (function(){
 	}, false);
 
 	canvas.addEventListener('touchstart', function(e){
-		if(e.target!==canvas){
+		var x = e.touches[0].clientX,
+			y = e.touches[0].clientY;
+
+		if(e.target!==canvas|| x > e.target.clientX>(e.target.clientWidth+e.target.clientLeft)){
 			return;
 		}
 		e.preventDefault();
-		gamePlay(e.touches[0].clientX,e.touches[0].clientY);
+		gamePlay(x,y);
 		triggerEvent(e);
 	}, false);
 
