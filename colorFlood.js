@@ -145,6 +145,13 @@ window.requestAnimationFrame = (function(){
 	// We only have one text Object on the screen at a time, lets reuse it.
 	var	text = new TextObject();
 	text.write("Flood It", "center center", 150);
+	text.touch(true);
+
+	// Help
+	var	info = new TextObject();
+	info.write("Start in the top left corner\nFlood tiles by color\nIn as few moves as possible", "center center", 40);
+	info.y = text.y + text.h;
+	info.touch(true);
 
 
 	// Is this playing as a background image?
@@ -155,6 +162,8 @@ window.requestAnimationFrame = (function(){
 
 		if(window.location.hash.match(/#escape/)){
 			text.write("Flood It", "center center", 150);
+			info.visible = true;
+			info.touch();
 			setup();
 		}
 		else{
@@ -273,8 +282,10 @@ window.requestAnimationFrame = (function(){
 
 		if(!firsttime){
 			collection.push(text);
+			collection.push(info);
 			collection.push(play);
 			text.touched = true;
+			info.touched = true;
 			play.touched = true;
 		}
 	}
@@ -310,12 +321,18 @@ window.requestAnimationFrame = (function(){
 		// Has the game state changed?
 		if(flooded>=(nx*ny)&&clicks<(nx+ny)){
 			text.write("Kudos! " + (clicks+1) + " moves", "center center", 150);
+			info.visible = false;
+			info.touched = true;
 		}
 		else if(++clicks>=(nx+ny)){
 			text.write("Game over!", "center center", 150);
+			info.visible = true;
+			info.touched = true;
 		}
 		else{
 			text.write(clicks + "/" + (nx+ny), "right bottom", 50);
+			info.visible = false;
+			info.touched = true;
 		}
 	}
 
@@ -374,7 +391,9 @@ window.requestAnimationFrame = (function(){
 
 				var tile = collection[i];
 				if(tile.touched){
-					tile.draw();
+					if(tile.visible){
+						tile.draw();
+					}
 					tile.touched = false;
 				}
 			}
@@ -405,6 +424,8 @@ window.requestAnimationFrame = (function(){
 		this.h = h;
 		this.ctx = ctx;
 		this.canvas = c;
+
+		this.visible = true;
 
 		// The default status is touched,
 		// This means it needs to be drawn on to canvas
@@ -540,6 +561,19 @@ window.requestAnimationFrame = (function(){
 			// Clear the space that the item currently occupies
 			this.touch();
 
+			// Split text by line breaks
+			this.lines = text.split('\n');
+
+			// Which is the longest line?
+			var _width = 0, default_text = this.lines[0];
+			for(var i=0;i<this.lines.length;i++){
+				var _w = ctx.measureText(this.lines[i]).width;
+				if(_w>_width){
+					_width = _w;
+					default_text = this.lines[i];
+				}
+			}
+
 
 			// Find the width and height of the item
 			// Using the canvas context
@@ -550,7 +584,7 @@ window.requestAnimationFrame = (function(){
 			ctx.strokeStyle="rgba(255,255,255,0.5)";
 			ctx.font= fontSize + "px Arial bold";
 
-			while(ctx.measureText(text).width>canvas.width){
+			while(ctx.measureText(default_text).width>canvas.width){
 				fontSize *= 0.9;
 				fontSize = Math.round(fontSize);
 				ctx.font = fontSize + "px Arial bold";
@@ -558,8 +592,8 @@ window.requestAnimationFrame = (function(){
 			this.shadowBlur = ctx.shadowBlur = Math.round(fontSize/10);
 			this.font = ctx.font;
 
-			this.w = ctx.measureText(text).width + (this.shadowBlur*2);
-			this.h = fontSize + (this.shadowBlur*2);
+			this.w = ctx.measureText(default_text).width + (this.shadowBlur*2);
+			this.h = (fontSize + (this.shadowBlur*2))*this.lines.length;
 
 			ctx.restore();
 
@@ -577,15 +611,12 @@ window.requestAnimationFrame = (function(){
 				case "center":
 				case "middle":
 					this.textAlign="center";
-					this.alignX = c.width/2;
 					this.x = (c.width/2) - (this.w/2);
 				break;
 				case "left":
-					this.alignX = 0;
 					this.x = 0;
 				break;
 				case "right":
-					this.alignX = c.width;
 					this.x = c.width - this.w;
 				break;
 			}
@@ -594,15 +625,12 @@ window.requestAnimationFrame = (function(){
 				case "center":
 				case "middle":
 					this.textBaseline="middle";
-					this.alignY = c.height/2;
 					this.y = (c.height/2) - (this.h/2);
 				break;
 				case "top":
-					this.alignY = 0;
 					this.y = 0;
 				break;
 				case "bottom":
-					this.alignY = c.height;
 					this.y = c.height - this.h;
 				break;
 			}
@@ -621,12 +649,14 @@ window.requestAnimationFrame = (function(){
 			ctx.strokeStyle="white";
 			ctx.font = this.font;
 
-			ctx.textAlign = this.textAlign;
-			ctx.textBaseline = this.textBaseline;
+			ctx.textAlign = 'left';
+			ctx.textBaseline = 'top';
 			ctx.lineWidth = this.lineWidth;
 
-			ctx.fillText(this.text, this.alignX, this.alignY );
-			ctx.strokeText(this.text, this.alignX, this.alignY );
+			for(var i=0,len=this.lines.length;i<len;i++){
+				ctx.fillText(this.lines[i], this.x, this.y + (i*(this.h/len)) );
+				ctx.strokeText(this.lines[i], this.x, this.y + (i*(this.h/len)) );
+			}
 			ctx.restore();
 		};
 	}
