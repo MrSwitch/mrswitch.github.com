@@ -1,0 +1,10 @@
+{
+	"name" : "Andrew Dodson's web portfolio",
+	"icons" : {
+		"64" : "favicon.ico"
+	},
+	"favicon" : "favicon.ico",
+	"description" : "Andrew Dodson's portfolio",
+	"github" : "MrSwitch",
+	"twitter:creator" : "@setData"
+}
