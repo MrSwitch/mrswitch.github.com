@@ -1,10 +1,11 @@
 {
 	"name" : "Andrew Dodson's web portfolio",
 	"icons" : {
-		"64" : "favicon.ico"
+		"64" : "/favicon.ico"
 	},
-	"favicon" : "favicon.ico",
+	"favicon" : "/favicon.ico",
 	"description" : "Andrew Dodson's portfolio",
 	"github" : "MrSwitch",
-	"twitter:creator" : "@setData"
+	"twitter:creator" : "@setData",
+	"author" : "Andrew Dodson, https://adodson.com"
 }
