@@ -7,5 +7,6 @@
 	"description" : "Andrew Dodson's portfolio",
 	"github" : "MrSwitch",
 	"twitter:creator" : "@setData",
-	"author" : "Andrew Dodson, https://adodson.com"
+	"author" : "Andrew Dodson, https://adodson.com",
+	"ga:tracking" : "UA-35317561-1"
 }
