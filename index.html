@@ -1,121 +1,64 @@
 <!DOCTYPE html>
-<html>
-<head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- use the latest IE browser always, and optionally use chrome frame if installed -->
 <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1" />
 <link href="/adorn/adorn.css" rel="stylesheet" />
-<script src="/_packages/track.js" async></script>
+<script src="/adorn/adorn.js" async></script>
 <title>Andrew Dodson - Web Developer</title>
 <style>
-	blockquote img{
-		float:left;
-		margin-right:10px;
-		background-color:	white;
-		border:1px solid #ccc;
-		padding:5px;
-		box-sizing:content-box;
-		-moz-box-sizing:content-box;
-		box-shadow:3px 3px 10px rgba(0, 0, 0, 0.2);
+html,body{
+	min-height:100%;
+	height:100%;
+	padding:0;
+	margin:0 auto;
+}
+.adorn-toolbar{
+	position:absolute;
+}
+footer{display: none;}
+video,.video{
+	width: 100%;
+	object-fit: cover;
+	height:100%;
+	overflow: hidden;
+}
+.links{
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    left: 0;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+    top: 0;	
+}
+.button{
+    margin: 5px;
+    background-color: #FF4500;	
+}
+.button:hover{
+    margin: 5px;
+    background-color: #FF4500;
+}
 
-		-webkit-transform:rotate(-5deg);
-		-moz-transform:rotate(-5deg);
-		-ms-transform:rotate(-5deg);
-		transform:rotate(-5deg);
 
-		-webkit-transition:-webkit-transform 1s;
-		-moz-transition:-moz-transform 1s;
-		-ms-transition:-ms-transform 1s;
-		transition:transform 1s;
-	}
-	blockquote img:hover{
-		-webkit-filter: saturate(5);
-		-webkit-transform:rotate(-365deg);
-		-moz-transform:rotate(-365deg);
-		-ms-transform:rotate(-365deg);
-		transform:rotate(-365deg);
-	}
-	.contact {
-		 float:right;
-		 color:white;
-	}
-		.contact span,.contact a{
-			 padding:5px;
-			 line-height: 20px;
-		}
-		.contact span{
-			background-color:#52b0fa;
-		}
-		.contact a{
-			background-color:#f74949;
-			text-decoration: none;
-		}
-		.contact a:hover{
-			text-decoration: underline;
-		}
-
-	body{
-		background-color: white;
-		margin-top:50px;
-	}
 
 </style>
-</head>
-<body>
-<header>
-	<span class="contact"><span>email:</span><a href="http://www.google.com/recaptcha/mailhide/d?k=01PAyTGrhpfSei8X2UJN99jQ==&amp;c=e1LnK1ZrrfCYFVlrzp6uvKMCuGwEVh_OnrmznSpx67U=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501PAyTGrhpfSei8X2UJN99jQ\75\75\46c\75e1LnK1ZrrfCYFVlrzp6uvKMCuGwEVh_OnrmznSpx67U\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">andr...@gmail.com</a></span>
-	<b style="font-size:3em;">Andrew Dodson</b>
-</header>
-<blockquote><a href="#escape"><img src="https://www.gravatar.com/avatar/20043d5ade315f3c25d13b18dba95bc4.jpg" width=80 height=80 /></a> Hi i'm Andrew, a web technology aficionado. Here are some things you don't want to know: I get rude over EcmaScript, HTML and CSS and Open Web Standards. My current haunt is Sydney, where i work as a freelance developer.</blockquote>
-<p>Listed below is a selection of my fruits from 2011 and 2012. During this time i worked with two fantastic companies, Microsoft and Tokbox. They have let me share some of the work below</p> 
-<h2>Independent projects</h2>
-<ul>
-	<li><a href="https://splashysplashy.com/">SplashySplashy</a> - A WebRTC Video Chat application uses getUserMedia and PeerConnection to capture and stream video between two clients. Its built using NodeJs with socket.io to connect two or more clients up.
-	<li><a href="http://toobify.com">Toobify.com</a> - An alternative YouTube player app, which has an awesome UI (self-professed).
-</ul>
+<body class="adorn-fullscreen">
+<div class="video">
+<video src="static/movie.mp4" autoplay loop></video>
+</div>
 
-<h2>Demos</h2>
-<p>I like creating mashups to highlight a technology. These are like mini-apps, unpolished but fun to build</p>
-<ul>
-	<li><a href="http://minesweep.herokuapp.com">MineSweep Multiplayer Game</a> - A cross collaborative game written in Canvas using ShareJS
-	<li><a href="http://adodson.com/keyboard/">Musical Keyboard</a> - An Audio API experiment.
-	<li><a href="http://copyandpasted.com">CopyAndPasted.com</a> - A WYSIWYG document text editor
-	<li><a href="/graffiti">Graffiti - Image manipulation</a> An example of the FileAPI to select an image and read it into a Canvas. Draw a doodle, then download it using a FileSaver.
-	<li><a href="http://wokspace.herokuapp.com/">WokSpace - Video chat and Hello.js demo</a> - I worked with a internet video communications company called TokBox in the first half of 2012. This was a demo i built.
-	<li><a href="http://browserexperiments.com/sites/Unreality/">Unreality - a Geolocation API</a> - a game to find places in the real world to unlock prizes in the virtual</a> 
-	<li><a href="http://browserexperiments.com/sites/StickMan/">SVG StickMan<a> inspired by DrawAStickMan
-</ul>
-
-<h2>Open-Source Tools</h2>
-<ul>
-	<li><a href="/hello.js">Hello.js</a> - An OAuth 2.0 client and REST SDK. Connect to Facebook Graph, Windows Live, Google +... etc. with one easy agnostic interface. Used with //auth-server for OAuth 1.0 and 1.0a authentication too.
-	<li><a href="https://auth-server.herokuapp.com/">// Auth Server</a> - provides a "shim" service for clientside web apps adopting serverside OAuth2 and OAuth1 authentication. Compliments HelloJS.
-	<li><a href="/peer.js">Peer.js</a> - A WebRTC wrapping API makes handling connections a doddle, as used by SplashySplashy.
-	<li><a href="/notification.js">notification.js</a> - Shims the Notification API with the best alternatives.
-	<li><a href="https://github.com/MrSwitch/dropfile">dropfile.js</a> - Shims up IE&lt;10 to support the FileReader via a SilverLight plugin
-	<li><a href="/jquery-seadragon.js">jquery-seadragon.js</a> - Microsoft Seadragon is a large image zoomer, and this script enables Seadragon to work on touch devices, and is a much nicer API.
-	<li><a href="/jquery.form.js">jquery-form.js</a> - Another shim for bringing the old browsers up to scratch with the HTML5 form. This includes a WYSIWYG editor, as used by CopyAndPasted.
-	<li><a href="/workspace.js">workspace.js</a> - A helper to make divs flexible, like the old FrameSet used to be, as seen by Toobify.com
-	<li><a href="/jquery.prompt.js">A Non-Blocking Prompt</a> - sorry, yet another jQuery plugin
-	<li> &hellip; and <a href="https://github.com/MrSwitch/">many more</a> 
-</ul>
-
-<h2>Knowledge contributions. Speaking &amp; Writing</h2>
-<ul>
-	<li>Co-curator of <a href="http://BrowserExperiments.com">BrowserExperiments</a>
-	<li>Authored a number of <a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills">polyfills and shims</a>
-	<li>Written articles on the <a href="http://msdn.microsoft.com/scriptjunkie/">MSDN blog ScriptJunkies</a>
-	<li>Speaking about <a href="http://vimeo.com/21252720">debugging tips for IE9 at London Web</a> group and why HelloJS library at SydJS
-</ul>
-
-
-<h2>Web Presence</h2>
-<ul>
-	<li><a href="https://twitter.com/setData">Twitter</a>
-	<li><a href="https://github.com/MrSwitch">Github</a>
-	<li><a href="http://www.linkedin.com/in/andrewdodson">LinkedIn</a>
-</ul>
+<div class="links">
+	<a class="button" href="https://github.com/MrSwitch/">Github</a>
+	<a class="button" href="https://www.linkedin.com/in/andrewdodson">LinkedIn</a>
+</div>
+<div style="height:100%;position:relative">
+	<canvas id="escape"></canvas>
+</div>
 
 <script>
 
@@ -123,11 +66,9 @@
 
 var script = document.createElement("script");
 script.src = (function(){
-	var a = ["mineField.js", "sunrise.js", "tiledOfLife.js", "colorFlood.js"];
+	var a = ["mineField.js", "tiledOfLife.js", "colorFlood.js"];
+	return a[0];
 	return a[Math.floor(Math.random()*a.length)] || a[0];
 })();
 document.body.appendChild(script);
 </script>
-
-</body>
-</html>

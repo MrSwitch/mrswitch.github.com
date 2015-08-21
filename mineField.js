@@ -24,43 +24,18 @@ window.requestAnimationFrame = (function(){
 		return;
 	}
 
-	var canvas;
+	var canvas, fullscreen=true;
 	var c, ctx;
 
-	document.documentElement.style.cssText = [
-		'background-color:white',
-		'background-repeat: no-repeat',
-		'background-position: top left',
-		'background-size:100%',
-		'background-attachment: fixed'
-	].join(';');
+	c = document.getElementById('escape');
+	// ensure its keeping up.
+	c.width=c.parentNode.offsetWidth;
+	c.height=c.parentNode.offsetHeight;
 
-
-	if("getCSSCanvasContext" in document){
-
-		canvas = document.documentElement;
-		canvas.setAttribute('tabindex',0);
-		document.documentElement.style.backgroundImage = '-webkit-canvas(mineField)';
-
-		c = {
-			width:window.innerWidth,
-			height:window.innerHeight
-		};
-
-		ctx = document.getCSSCanvasContext("2d", "mineField", c.width, c.height);
-
-	}
-	else {
-		c = document.createElement('canvas');
-		canvas = c;
-		document.body.insertBefore(c,document.body.firstElementChild);
-		c.width=window.innerWidth;
-		c.height=window.innerHeight;
-		c.style.cssText = "position:fixed;z-index:-1;top:0;left:0;";
-		c.setAttribute('tabindex',0);
-		ctx = c.getContext('2d');
-	}
-
+	c.style.cssText = "position:absolute;top:0;left:0;bottom:0;right:0;";
+	c.setAttribute('tabindex',0);
+	ctx = c.getContext('2d');
+	canvas = c;
 
 	/******************************************
 	 *
@@ -68,40 +43,19 @@ window.requestAnimationFrame = (function(){
 	 *
 	 ******************************************/
 
-	// ensure its keeping up.
-	c.width=window.innerWidth;
-	c.height=window.innerHeight;
-
-
-	/******************************************
-	 *
-	 *  Add event to the document to toggle display
-	 *
-	 ******************************************/
-
-	function togglePlay(){
-		window.location.hash = (window.location.hash === "#escape" ? '' : 'escape');
+	function scaleCanvas (){
+		// ensure its keeping up.
+		c.width=c.parentNode.offsetWidth;
+		c.height=c.parentNode.offsetHeight;
 	}
 
-	var fullscreen = false;
-	function hashchange(){
-		fullscreen = (window.location.hash === "#escape");
+	scaleCanvas();
 
-		if(!fullscreen){
-			document.body.style.position = "static";
-			document.body.style.left = "0";
-		}else{
-			document.body.style.webkitTransition = "left 1s";
-			document.body.style.mozTransition = "left 1s";
-			document.body.style.msTransition = "left 1s";
-			document.body.style.transition = "left 1s";
-			document.body.style.position = "absolute";
-			document.body.style.left = "-3000px";
-		}
-	}
+	window.addEventListener('resize', function(){
+		scaleCanvas();
+		setup();
+	});
 
-	window.addEventListener('hashchange', hashchange,false);
-	hashchange();
 
 
 	// Press ESC
@@ -155,14 +109,8 @@ window.requestAnimationFrame = (function(){
 	play.write("►", "left top", 40);
 	play.addEventListener('mousedown', function(e){
 
-		if(window.location.hash.match(/#escape/)){
-			text.write("MineField", "center center", 150);
-			setup();
-		}
-		else{
-			togglePlay();
-		}
-
+		text.write("MineField");
+		setup();
 		e.preventDefault();
 
 	},false);
@@ -402,6 +350,7 @@ window.requestAnimationFrame = (function(){
 		fps=0;
 
 
+
 	(function animation(){
 
 		fps++;
@@ -602,6 +551,13 @@ window.requestAnimationFrame = (function(){
 			// Clear the space that the item currently occupies
 			this.touch();
 
+			if (align) {
+				this.align = align;
+			}
+			if (fontSize) {
+				this.fontSize = fontSize;
+			}
+
 
 			// Find the width and height of the item
 			// Using the canvas context
@@ -610,19 +566,19 @@ window.requestAnimationFrame = (function(){
 			ctx.shadowColor = "black";
 			ctx.fillStyle="black";
 			ctx.strokeStyle="rgba(255,255,255,0.5)";
-			ctx.font= fontSize + "px Arial bold";
+			ctx.font= this.fontSize + "px Arial bold";
 
 			while(ctx.measureText(text).width>canvas.width){
 				fontSize *= 0.9;
-				fontSize = Math.round(fontSize);
-				ctx.font = fontSize + "px Arial bold";
+				fontSize = Math.round(this.fontSize);
+				ctx.font = this.fontSize + "px Arial bold";
 			}
 
-			this.shadowBlur = ctx.shadowBlur = Math.round(fontSize/10);
+			this.shadowBlur = ctx.shadowBlur = Math.round(this.fontSize/10);
 			this.font = ctx.font;
 
 			this.w = ctx.measureText(text).width + (this.shadowBlur*2);
-			this.h = fontSize + (this.shadowBlur*2);
+			this.h = this.fontSize + (this.shadowBlur*2);
 
 			ctx.restore();
 
@@ -630,9 +586,9 @@ window.requestAnimationFrame = (function(){
 			// Store the new attributes of the text item
 			this.text = text;
 
-			this.textAlign=align.split(" ")[0];
-			this.textBaseline=align.split(" ")[1];
-			this.lineWidth=Math.floor(fontSize/30);
+			this.textAlign=this.align.split(" ")[0];
+			this.textBaseline=this.align.split(" ")[1];
+			this.lineWidth=Math.floor(this.fontSize/30);
 
 
 			// HEIGHT and WIDTH

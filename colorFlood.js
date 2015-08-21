@@ -25,39 +25,16 @@ window.requestAnimationFrame = (function(){
 	var canvas;
 	var c, ctx;
 
-	document.documentElement.style.cssText = [
-		'background-color:white',
-		'background-size:100%',
-		'background-repeat: no-repeat',
-		'background-position: top left',
-		'background-attachment: fixed'
-	].join(';');
 
+	c = document.createElement('canvas');
+	canvas = c;
+	document.body.insertBefore(c,document.body.firstElementChild);
+	c.width=window.innerWidth;
+	c.height=window.innerHeight;
+	c.style.cssText = "position:fixed;z-index:-1;top:0;left:0;";
+	c.setAttribute('tabindex',0);
+	ctx = c.getContext('2d');
 
-	if("getCSSCanvasContext" in document){
-
-		canvas = document.documentElement;
-		canvas.setAttribute('tabindex',0);
-		document.documentElement.style.backgroundImage = '-webkit-canvas(colorflood)';
-
-		c = {
-			width:window.innerWidth,
-			height:window.innerHeight
-		};
-
-		ctx = document.getCSSCanvasContext("2d", "colorflood", c.width, c.height);
-
-	}
-	else {
-		c = document.createElement('canvas');
-		canvas = c;
-		document.body.insertBefore(c,document.body.firstElementChild);
-		c.width=window.innerWidth;
-		c.height=window.innerHeight;
-		c.style.cssText = "position:fixed;z-index:-1;top:0;left:0;";
-		c.setAttribute('tabindex',0);
-		ctx = c.getContext('2d');
-	}
 
 	var clicks,
 		flooded,

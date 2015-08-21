@@ -25,39 +25,15 @@ window.requestAnimationFrame = (function(){
 
 	var radius = 500, c, ctx;
 
-	document.documentElement.style.cssText = [
-		'background-color:white',
-//		'background-image: url(../graffiti/assets/gorgeous.jpg)',
-		'background-size:100%',
-		'background-position: top left',
-		'background-attachment: fixed'
-	].join(';');
 
 
-	if(false&&"getCSSCanvasContext" in document){
-
-		document.documentElement.style.cssText = [
-			'background-color:white',
-			'background-image: -webkit-canvas(sunrise)',
-			'background-position: top left',
-			'background-size:100%',
-			'background-attachment: fixed'
-		].join(';');
-
-		c = {
-			width:0,
-			height:0
-		};
-	}
-	else {
-		radius = screen.width/2;
-		c = document.createElement('canvas');
-		document.body.insertBefore(c,document.body.firstElementChild);
-		c.width=screen.width;
-		c.height=screen.height;
-		c.style.cssText = "position:fixed;z-index:-1;top:0;left:0;";
-		ctx = c.getContext('2d');
-	}
+	radius = screen.width/2;
+	c = document.createElement('canvas');
+	document.body.insertBefore(c,document.body.firstElementChild);
+	c.width=screen.width;
+	c.height=screen.height;
+	c.style.cssText = "position:fixed;z-index:-1;top:0;left:0;";
+	ctx = c.getContext('2d');
 
 	// Add events
 	var doc = document.documentElement,

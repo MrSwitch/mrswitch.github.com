@@ -26,32 +26,15 @@ window.requestAnimationFrame = (function(){
 
 	var radius = 500, ctx, c, opacity = 0;
 
-	if("getCSSCanvasContext" in document){
+	radius = screen.width/2;
+	c = document.createElement('canvas');
+	document.body.appendChild(c);
+	c.width=screen.width;
+	c.height=screen.height;
+	c.style.cssText = "position:fixed;z-index:-1;top:0;left:0;";
+	c.style.opacity = 0;
+	ctx = c.getContext('2d');
 
-		c = document.documentElement;
-
-		ctx = document.getCSSCanvasContext("2d", "sunrise", radius*2, radius*2);
-
-		document.documentElement.style.cssText = [
-			'background-image: -webkit-canvas(sunrise)',
-			'background-position: center center',
-			'background-repeat: no-repeat no-repeat',
-			'background-size:cover',
-			'background-attachment:fixed'
-		].join(';');
-
-		ctx.globalAlpha = 0;
-	}
-	else {
-		radius = screen.width/2;
-		c = document.createElement('canvas');
-		document.body.appendChild(c);
-		c.width=screen.width;
-		c.height=screen.height;
-		c.style.cssText = "position:fixed;z-index:-1;top:0;left:0;";
-		c.style.opacity = 0;
-		ctx = c.getContext('2d');
-	}
 
 	// Add custom styles
 	var style = document.createElement('style');
