@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!-- use the latest IE browser always, and optionally use chrome frame if installed -->
 <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1" />
@@ -67,8 +67,8 @@
 	<span class="contact"><span>email:</span><a href="http://www.google.com/recaptcha/mailhide/d?k=01PAyTGrhpfSei8X2UJN99jQ==&amp;c=e1LnK1ZrrfCYFVlrzp6uvKMCuGwEVh_OnrmznSpx67U=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501PAyTGrhpfSei8X2UJN99jQ\75\75\46c\75e1LnK1ZrrfCYFVlrzp6uvKMCuGwEVh_OnrmznSpx67U\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">andr...@gmail.com</a></span>
 	<b style="font-size:3em;">Andrew Dodson</b>
 </header>
-<blockquote><a href="#escape"><img src="https://www.gravatar.com/avatar/20043d5ade315f3c25d13b18dba95bc4.jpg" width=80 height=80 /></a> Hi i'm Andrew, a web technology aficionado. Here are some things you don't want to know: I get rude over EcmaScript, HTML and CSS and Open Web Standards. My current haunt is Sydney, where i work as a freelance developer.</blockquote>
-<p>Listed below is a selection of my fruits from 2011 and 2012. During this time i worked with two fantastic companies, Microsoft and Tokbox. They have let me share some of the work below</p> 
+<blockquote><a href="#background"><img src="https://www.gravatar.com/avatar/20043d5ade315f3c25d13b18dba95bc4.jpg" width=80 height=80 /></a> Hi i'm Andrew, a web technology aficionado. Here are some things you don't want to know: I get rude over EcmaScript, HTML and CSS and Open Web Standards. My current haunt is Sydney, where i work as a freelance developer.</blockquote>
+<p>Listed below is a selection of my fruits from 2011 and 2012. During this time i worked with two fantastic companies, Microsoft and Tokbox. They have let me share some of the work below</p>
 <h2>Independent projects</h2>
 <ul>
 	<li><a href="https://splashysplashy.com/">SplashySplashy</a> - A WebRTC Video Chat application uses getUserMedia and PeerConnection to capture and stream video between two clients. Its built using NodeJs with socket.io to connect two or more clients up.
@@ -83,7 +83,7 @@
 	<li><a href="http://copyandpasted.com">CopyAndPasted.com</a> - A WYSIWYG document text editor
 	<li><a href="/graffiti">Graffiti - Image manipulation</a> An example of the FileAPI to select an image and read it into a Canvas. Draw a doodle, then download it using a FileSaver.
 	<li><a href="http://wokspace.herokuapp.com/">WokSpace - Video chat and Hello.js demo</a> - I worked with a internet video communications company called TokBox in the first half of 2012. This was a demo i built.
-	<li><a href="http://browserexperiments.com/sites/Unreality/">Unreality - a Geolocation API</a> - a game to find places in the real world to unlock prizes in the virtual</a> 
+	<li><a href="http://browserexperiments.com/sites/Unreality/">Unreality - a Geolocation API</a> - a game to find places in the real world to unlock prizes in the virtual</a>
 	<li><a href="http://browserexperiments.com/sites/StickMan/">SVG StickMan<a> inspired by DrawAStickMan
 </ul>
 
@@ -98,7 +98,7 @@
 	<li><a href="/jquery.form.js">jquery-form.js</a> - Another shim for bringing the old browsers up to scratch with the HTML5 form. This includes a WYSIWYG editor, as used by CopyAndPasted.
 	<li><a href="/workspace.js">workspace.js</a> - A helper to make divs flexible, like the old FrameSet used to be, as seen by Toobify.com
 	<li><a href="/jquery.prompt.js">A Non-Blocking Prompt</a> - sorry, yet another jQuery plugin
-	<li> &hellip; and <a href="https://github.com/MrSwitch/">many more</a> 
+	<li> &hellip; and <a href="https://github.com/MrSwitch/">many more</a>
 </ul>
 
 <h2>Knowledge contributions. Speaking &amp; Writing</h2>
@@ -120,13 +120,13 @@
 <script>
 
 // Ahh immersive backgrounds.... dont we just love'em
-
 var script = document.createElement("script");
-script.src = (function(){
-	var a = ["mineField.js", "sunrise.js", "tiledOfLife.js", "colorFlood.js"];
-	return a[Math.floor(Math.random()*a.length)] || a[0];
-})();
+script.src = '/background/dist/' + (function() {
+	var a = ["mineField", "tiledOfLife", "colorFlood"];
+	return a[Math.floor(Math.random() * a.length)] || a[0];
+})() + '.js';
 document.body.appendChild(script);
+
 </script>
 
 </body>
