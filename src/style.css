@@ -4,10 +4,10 @@ html{
 body, html{
 	height:100%;
 	padding:0;
+	margin:0 !important;
 }
 
 body{
-	margin-top:50px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -24,9 +24,6 @@ article i{
 	color:inherit;
 }
 
-h1{
-}
-
 img, ul, li, p{
 	display: inline-block;
 	margin:0 1em;
@@ -37,6 +34,8 @@ img, ul, li, p{
 
 ul{
 	display: block;
+	margin: 0;
+	padding: 0;
 }
 
 canvas{
