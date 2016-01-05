@@ -1,5 +1,6 @@
 // Script
 // This script controls the background page
+(function(window) {
 
 // Load the background script
 var script = document.createElement("script");
@@ -10,7 +11,7 @@ script.src = '/background/dist/' + (function() {
 document.body.appendChild(script);
 
 // Install background
-var background = window.background || [];
+window.background = window.background || [];
 var bg;
 
 // Push a function to call
@@ -21,22 +22,31 @@ background.push(function(BG) {
 	// Setup, without any controls
 	if (bg.setup) {
 
-		// Show the controls
-		var a = document.createElement('a');
-		a.href = "#background";
-		a.style.position = "absolute"; // jerky jank prevention
-		a.innerHTML = "Play";
-		a.onclick = function(e) {
-			e.stopPropagation();
-		};
-		document.getElementsByTagName('footer')[0].appendChild(a);
-
 		// Set default state
 		bg.setup({
 			controls: false
 		});
 	}
+
+	// Is this a configurable background?
+	if (bg.config) {
+
+		// Create a controller to listen to toggling between states
+		window.addEventListener('hashchange', hashchange);
+		hashchange();
+
+		// Show the controls
+		var a = document.createElement('a');
+		a.href = "#background";
+		a.id = "play_btn"; // jerky jank prevention
+		a.innerHTML = "Play";
+		a.onclick = function(e) {
+			e.stopPropagation();
+		};
+		document.body.appendChild(a);
+	}
 });
+
 
 // Listen to the background trigger to show/hide the background
 function hashchange() {
@@ -47,14 +57,9 @@ function hashchange() {
 	// Add/Remove class from window
 	window.document.documentElement.classList[bool ? 'add' : 'remove']('background');
 
-	// Change the controls of the background animation
-	background.push(function() {
-		bg.config({
-			controls: bool
-		});
+	bg.config({
+		controls: bool
 	});
 };
 
-window.addEventListener('hashchange', hashchange);
-
-hashchange();
+})(window);
