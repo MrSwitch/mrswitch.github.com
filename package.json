@@ -1,0 +1,7 @@
+{
+  "version": "1.0.0",
+  "scripts": {
+    "test": "watchy -w src/style.less -- bash -c \"lessc src/style.less src/style.css\""
+  },
+  "author": "Andrew Dodson (andrew.j.dodson+npm@gmail.com)"
+}
