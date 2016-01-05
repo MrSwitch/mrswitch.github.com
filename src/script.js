@@ -62,4 +62,9 @@ function hashchange() {
 	});
 };
 
+// Fix ios scrolling issue
+document.addEventListener('touchmove', function (event) {
+    event.preventDefault();
+}, false);
+
 })(window);
