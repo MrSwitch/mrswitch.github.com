@@ -30,16 +30,19 @@ self.addEventListener('fetch', event => {
 
       return response;
     }, 
-    () => caches.match(event.request))
-    .catch(err => {
-      // There is no matching cache
-      if (event.request.mode === 'navigate') {
-        // This is the initial page, we can provide an offline experience
-        // Lets test this by writing to the console.
-        console.log(`Could not load ${event.request.url}`);
-      }
+    () => {
+      // return the cached version
+      return caches.match(event.request).then(resp => {
 
-      throw err;
+        // There is no matching cache
+        if (!resp && event.request.mode === 'navigate') {
+          // This is the initial page, we can provide an offline experience
+          // Lets test this by writing to the console.
+          console.log(`Could not load ${event.request.url}`);
+        }
+
+        return resp;
+      });
     })
   );
 });
