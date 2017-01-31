@@ -31,7 +31,7 @@ self.addEventListener('fetch', event => {
       return response;
     }, 
     () => caches.match(event.request))
-    .catch((err) => {
+    .catch(err => {
       // There is no matching cache
       if (event.request.mode === 'navigate') {
         // This is the initial page, we can provide an offline experience
@@ -40,6 +40,6 @@ self.addEventListener('fetch', event => {
       }
 
       throw err;
-    });
+    })
   );
 });
