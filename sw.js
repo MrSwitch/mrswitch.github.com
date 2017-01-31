@@ -7,7 +7,7 @@ self.addEventListener('install', event => {
   // Perform install steps
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(function(cache) {
+      .then(cache => {
         console.log('Opened cache');
       })
   );
@@ -21,17 +21,25 @@ self.addEventListener('fetch', event => {
         return response || caches.match(event.request);
       }
 
-      let responseToCache = response.clone();
+      const responseToCache = response.clone();
 
       caches.open(CACHE_NAME)
-      .then(function(cache) {
+      .then(cache => {
         cache.put(event.request, responseToCache);
       });
 
       return response;
     }, 
-    () => {
-      return caches.match(event.request);
-    })
+    () => caches.match(event.request))
+    .catch((err) => {
+      // There is no matching cache
+      if (event.request.mode === 'navigate') {
+        // This is the initial page, we can provide an offline experience
+        // Lets test this by writing to the console.
+        console.log(`Could not load ${event.request.url}`);
+      }
+
+      throw err;
+    });
   );
 });
