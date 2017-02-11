@@ -1,21 +1,21 @@
 // Script
 // This script controls the background page
-(function(window) {
+const getScript = require('tricks/browser/http/getScript');
 
-// Load the background script
-var script = document.createElement("script");
-script.src = '/background/dist/' + (function() {
-	var a = ["mineField", "tiledOfLife", "colorFlood"];
+const name = (function() {
+	const a = ['mineField', 'tiledOfLife', 'colorFlood'];
 	return a[Math.floor(Math.random() * a.length)] || a[0];
-})() + '.js';
-document.body.appendChild(script);
+})();
+
+getScript(`/background/dist/${name}.js`);
 
 // Install background
-window.background = window.background || [];
-var bg;
+self.background = self.background || [];
+
+let bg;
 
 // Push a function to call
-background.push(function(BG) {
+self.background.push(BG => {
 	// Passing in null for target inserts it into the body background
 	bg = BG.init(null);
 
@@ -36,10 +36,10 @@ background.push(function(BG) {
 		hashchange();
 
 		// Show the controls
-		var a = document.createElement('a');
-		a.href = "#background";
-		a.id = "play_btn"; // jerky jank prevention
-		a.innerHTML = "Play";
+		const a = document.createElement('a');
+		a.href = '#background';
+		a.id = 'play_btn'; // jerky jank prevention
+		a.innerHTML = 'Play';
 		a.onclick = function(e) {
 			e.stopPropagation();
 		};
@@ -52,19 +52,16 @@ background.push(function(BG) {
 function hashchange() {
 
 	// Has the backdrop come into the focus?
-	var bool = (window.location.hash === '#background');
+	const controls = (window.location.hash === '#background');
 
 	// Add/Remove class from window
-	window.document.documentElement.classList[bool ? 'add' : 'remove']('background');
+	window.document.documentElement.classList[controls ? 'add' : 'remove']('background');
 
-	bg.config({
-		controls: bool
-	});
-};
+	bg.config({controls});
+}
 
 // Fix ios scrolling issue
-document.addEventListener('touchmove', function (event) {
-    event.preventDefault();
+document.addEventListener('touchmove', event => {
+	event.preventDefault();
 }, false);
 
-})(window);

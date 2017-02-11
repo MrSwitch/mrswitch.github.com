@@ -1,7 +1,37 @@
 {
+  "name": "mrswitch",
   "version": "1.0.0",
+  "private": true,
+  "description": "mrswitch",
   "scripts": {
-    "test": "watchy -w src/style.less -- bash -c \"lessc src/style.less src/style.css\""
+    "build": "gulp",
+    "lint": "eslint ./src/",
+    "test": "npm run lint && npm run build"
   },
-  "author": "Andrew Dodson (andrew.j.dodson+npm@gmail.com)"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MrSwitch/mrswitch.github.com.git"
+  },
+  "author": "Andrew Dodson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrSwitch/mrswitch.github.com/issues"
+  },
+  "devDependencies": {
+    "babel": "*",
+    "babel-preset-es2015": "^6.22.0",
+    "babelify": "*",
+    "browserify": "*",
+    "eslint": "*",
+    "gulp": "*",
+    "gulp-if": "*",
+    "gulp-less": "*",
+    "gulp-minify-css": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-uglify": "*",
+    "gulp-util": "*",
+    "vinyl-buffer": "*",
+    "vinyl-source-stream": "*",
+    "yargs": "*"
+  }
 }
