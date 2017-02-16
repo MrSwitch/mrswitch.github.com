@@ -1,10 +1,23 @@
 {
 	"name" : "Andrew Dodson's web portfolio",
-	"icons" : {
-		"64" : "/favicon.ico"
-	},
-	"favicon" : "/favicon.ico",
 	"description" : "Andrew Dodson's portfolio",
+	"short_name": "AD Dev",
+	"start_url": "/",
+	"theme_color": "#4E5260",
+	"background_color": "white",
+	"icons" : [{
+		"src" : "./favicon.ico",
+		"sizes" : "64x64",
+		"type" : "image/ico"
+	},
+	{
+		"src" : "https://avatars3.githubusercontent.com/u/947163?v=3&s=144",
+		"sizes" : "144x144",
+		"type" : "image/png"
+	}],
+	"display": "standalone",
+	"orientation": "portrait-primary",
+	"favicon" : "/favicon.ico",
 	"github" : "MrSwitch",
 	"twitter:creator" : "@setData",
 	"author" : "Andrew Dodson, https://adodson.com",
