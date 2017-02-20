@@ -30,6 +30,7 @@
     "gulp-sourcemaps": "*",
     "gulp-uglify": "*",
     "gulp-util": "*",
+    "tricks": "1.6.0",
     "vinyl-buffer": "*",
     "vinyl-source-stream": "*",
     "yargs": "*"

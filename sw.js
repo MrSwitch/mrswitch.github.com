@@ -7,7 +7,8 @@
 
 class DB {
 	constructor (name, version, schema) {
-    // Define the schema to use in the connection
+
+		// Define the schema to use in the connection
 		this.db_name = name || '__tricks__';
 		if (typeof version === 'object') {
 			this.version = 1;
@@ -19,12 +20,12 @@ class DB {
 		}
 		this.table_name = '__tricks__';
 
-    // Return a function
+		// Return a function
 		return Object.assign(this.scope.bind(this), this);
 	}
 
 	scope (name) {
-    // Create a new store instance
+		// Create a new store instance
 		const inst = Object.create(this);
 		inst.table_name = name;
 		return inst;
@@ -39,7 +40,8 @@ class DB {
 			db.onerror = reject;
 			db.onupgradeneeded = event => {
 				const db = event.target.result;
-        // this should probably do something;
+
+				// this should probably do something;
 				for (const x in this.schema) {
 					if (!db.objectStoreNames.contains(x)) {
 						db.createObjectStore(x, this.schema[x]);
@@ -47,28 +49,22 @@ class DB {
 				}
 			};
 		})
-    .then(db => {
+		.then(db => {
+			// The DB connection has been established
+			// Lets create a connection to it
+			const transaction = db.transaction([this.table_name], mode);
 
-      // Does the store requested exist?
-      // if (!db.objectStoreNames.contains(this.table_name)) {
-      //   db.transaction('versionchange').createObjectStore(this.table_name, this.schema[this.table_name]);
-      // }
-
-      // The DB connection has been established
-      // Lets create a connection to it
-	const transaction = db.transaction([this.table_name], mode);
-
-      // Return the API for the Object Store
-	return transaction.objectStore(this.table_name);
-});
+			// Return the API for the Object Store
+			return transaction.objectStore(this.table_name);
+		});
 	}
 
 	get (key) {
 
-    // We've got all the information to make a request to IndexDB
+		// We've got all the information to make a request to IndexDB
 		return new Promise((accept, reject) => {
 			this.open().then(objectStore => {
-          // Find items in this table by Key
+				// Find items in this table by Key
 				const request = objectStore.get(key);
 				request.onsuccess = event => {
 					accept(event.target.result);
@@ -82,10 +78,10 @@ class DB {
 
 	all () {
 
-    // We've got all the information to make a request to IndexDB
+		// We've got all the information to make a request to IndexDB
 		return new Promise((accept, reject) => {
 			this.open().then(objectStore => {
-          // Find items in this table by Key
+		  // Find items in this table by Key
 				const request = objectStore.openCursor();
 				request.onerror = event => {
 					reject(event.target.result);
@@ -110,7 +106,7 @@ class DB {
 
 		return new Promise((accept, reject) => {
 
-      // Allow data as a thing on its own.
+			// Allow data as a thing on its own.
 			if (typeof key === 'object') {
 				data = key;
 			}
@@ -118,7 +114,7 @@ class DB {
 				data.key = key;
 			}
 
-      // Open up a connection to indexdb
+			// Open up a connection to indexdb
 			this.open('readwrite').then(objectStore => {
 				const request = objectStore.put(data);
 				request.onsuccess = event => {
@@ -128,10 +124,9 @@ class DB {
 					reject(event.target.result);
 				};
 			})
-      .catch(reject);
+			.catch(reject);
 
 		});
-
 	}
 }
 
