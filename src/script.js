@@ -3,7 +3,7 @@
 const getScript = require('tricks/browser/http/getScript');
 
 const name = (function() {
-	const a = ['mineField', 'tiledOfLife', 'colorFlood'];
+	const a = ['mineField', 'tiledOfLife', 'colorFlood', 'tetris'];
 	return a[Math.floor(Math.random() * a.length)] || a[0];
 })();
 
