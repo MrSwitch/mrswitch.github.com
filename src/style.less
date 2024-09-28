@@ -53,28 +53,31 @@ canvas {
 
 @bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-#play_btn {
+.controls{
 	position: absolute;
 	top: 1em;
-	left: calc(50% - 1.5em);
-	left: ~'calc(50% - 1.5em)';
-	width: 3em;
-	line-height: 3em;
-	background: #fff;
-	display: inline-block;
-	border-radius: 50%;
-	color: #000;
-	text-transform: lowercase;
-	text-decoration: none;
-	margin: auto;
+	left: calc(50% - 4.5em);
+	width:9em;
 	text-align: center;
-	z-index: 100000000;
-
+	color: #000;
 	.animate( ~'slideInDown 1s @{bounce} forwards, fadeIn 1s @{bounce} forwards');
 	.background & {
 		z-index: 0;
 		.animate(~'slideOutUp 1s @{bounce} forwards, fadeOut 1s @{bounce} forwards');
 	}
+}
+#play_btn {
+	width: 3em;
+	line-height: 3em;
+	background: #fff;
+	display: inline-block;
+	border-radius: 50%;
+	color: inherit;
+	text-transform: lowercase;
+	text-decoration: none;
+	margin: auto;
+	text-align: center;
+	z-index: 100000000;
 }
 
 @keyframes slideOutUp {

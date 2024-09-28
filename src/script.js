@@ -1,6 +1,7 @@
 // Script
 // This script controls the background page
 import getScript from 'tricks/browser/http/getScript.js';
+import el from 'tricks/dom/create.js';
 
 const name = (function () {
 	const a = ['mineField', 'tiledOfLife', 'colorFlood', 'tetris'];
@@ -34,14 +35,17 @@ self.background.push(BG => {
 		hashchange();
 
 		// Show the controls
-		const a = document.createElement('a');
-		a.href = '#background';
-		a.id = 'play_btn'; // jerky jank prevention
-		a.innerHTML = 'Play';
-		a.onclick = function (e) {
-			e.stopPropagation();
-		};
-		document.body.appendChild(a);
+		el('div', {
+			class: 'controls'
+		}, [
+			el('a', {
+				id: 'play_btn',
+				href: '#background',
+				onclick(e) {
+					e.stopPropagation();
+				}
+			}, ['Play'])
+		], document.body);
 	}
 });
 
