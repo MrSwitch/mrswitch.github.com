@@ -5,7 +5,6 @@ layout: default
 
 # Privacy Policy
 
-
 This Privacy Policy governs the manner in which A Dodson collects, uses, maintains and discloses information collected from users (each, a "User") of the https://adodson.com website ("Site").
 
 Personal identification information
@@ -23,10 +22,11 @@ Our Site may use "cookies" to enhance User experience. User's web browser places
 How we use collected information
 
 A Dodson may collect and use Users personal information for the following purposes:
- - To run and operate our Site
-We may need your information display content on the Site correctly.
- - To personalize user experience
-We may use information in the aggregate to understand how our Users as a group use the services and resources provided on our Site.
+
+-   To run and operate our Site
+    We may need your information display content on the Site correctly.
+-   To personalize user experience
+    We may use information in the aggregate to understand how our Users as a group use the services and resources provided on our Site.
 
 How we protect your information
 
@@ -34,7 +34,7 @@ We adopt appropriate data collection, storage and processing practices and secur
 
 Sharing your personal information
 
-We do not sell, trade, or rent Users personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information regarding visitors and users with our business partners, trusted affiliates and advertisers for the purposes outlined above. 
+We do not sell, trade, or rent Users personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information regarding visitors and users with our business partners, trusted affiliates and advertisers for the purposes outlined above.
 
 Third party websites
 

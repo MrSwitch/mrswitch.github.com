@@ -1,8 +1,8 @@
 // Script
 // This script controls the background page
-const getScript = require('tricks/browser/http/getScript');
+import getScript from 'tricks/browser/http/getScript.js';
 
-const name = (function() {
+const name = (function () {
 	const a = ['mineField', 'tiledOfLife', 'colorFlood', 'tetris'];
 	return a[Math.floor(Math.random() * a.length)] || a[0];
 })();
@@ -21,16 +21,14 @@ self.background.push(BG => {
 
 	// Setup, without any controls
 	if (bg.setup) {
-
 		// Set default state
 		bg.setup({
-			controls: false
+			controls: false,
 		});
 	}
 
 	// Is this a configurable background?
 	if (bg.config) {
-
 		// Create a controller to listen to toggling between states
 		window.addEventListener('hashchange', hashchange);
 		hashchange();
@@ -40,28 +38,31 @@ self.background.push(BG => {
 		a.href = '#background';
 		a.id = 'play_btn'; // jerky jank prevention
 		a.innerHTML = 'Play';
-		a.onclick = function(e) {
+		a.onclick = function (e) {
 			e.stopPropagation();
 		};
 		document.body.appendChild(a);
 	}
 });
 
-
 // Listen to the background trigger to show/hide the background
 function hashchange() {
-
 	// Has the backdrop come into the focus?
-	const controls = (window.location.hash === '#background');
+	const controls = window.location.hash === '#background';
 
 	// Add/Remove class from window
-	window.document.documentElement.classList[controls ? 'add' : 'remove']('background');
+	window.document.documentElement.classList[controls ? 'add' : 'remove'](
+		'background'
+	);
 
 	bg.config({controls});
 }
 
 // Fix ios scrolling issue
-document.addEventListener('touchmove', event => {
-	event.preventDefault();
-}, false);
-
+document.addEventListener(
+	'touchmove',
+	event => {
+		event.preventDefault();
+	},
+	false
+);

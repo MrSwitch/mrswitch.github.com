@@ -1,1 +1,1 @@
-require('adorn-kit/adorn_sw');
+import 'adorn-kit/adorn_sw';

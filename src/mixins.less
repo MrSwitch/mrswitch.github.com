@@ -4,24 +4,27 @@
 //////////////////////
 
 // MEDIA QUERIES
-@mobile: ~"all and (max-width: 640px)";
-
+@mobile: ~'all and (max-width: 640px)';
 
 // Animations
-.animate(@val){
-    -webkit-animation: @val;
-    animation: @val;
+.animate(@val) {
+	-webkit-animation: @val;
+	animation: @val;
 }
 
 // Animation Delay
-.animate-delay(@val){
-    -webkit-animation-delay: @val;
-    animation-delay: @val;
+.animate-delay(@val) {
+	-webkit-animation-delay: @val;
+	animation-delay: @val;
 }
 
-.keyframes(@identifier: slidein, @animation: ~"{0%, 50%, 100% { opacity: 0; } 25%, 75% {opacity: 0 }") {
-  .webkit { content: ~"''; } @-webkit-keyframes @{identifier} @{animation}"}
-     .key { content: ~"''; }         @keyframes @{identifier} @{animation}"}
+.keyframes(@identifier: slidein, @animation: ~'{0%, 50%, 100% { opacity: 0; } 25%, 75% {opacity: 0 }') {
+	.webkit {
+		content: ~"''; } @-webkit-keyframes @{identifier} @{animation}";
+	}
+	.key {
+		content: ~"''; }         @keyframes @{identifier} @{animation}";
+	}
 }
 
 // Transform MIXIN
@@ -45,27 +48,24 @@
 	transition-delay: @val;
 }
 
-
 //
 // Flex
 //
-.flex-display(){
+.flex-display() {
 	display: -webkit-flex;
 	display: flex;
 }
-.flex-flow(@value){
-	-webkit-flex-flow:@value;
-	flex-flow:@value;
+.flex-flow(@value) {
+	-webkit-flex-flow: @value;
+	flex-flow: @value;
 }
-.justify-content(@value){
-    -webkit-justify-content: @value;
-    justify-content: @value;
+.justify-content(@value) {
+	-webkit-justify-content: @value;
+	justify-content: @value;
 }
-
 
 // FlexBox Mixin
-.flexBoxPack (){
-
+.flexBoxPack () {
 	// V1 MOZ AND WEBKIT
 	//display: -moz-box;
 	//-moz-box-orient: horizontal;
@@ -94,16 +94,16 @@
 	-moz-flex-direction: row;
 	-moz-flex-wrap: wrap;
 
-	display: flex; 
+	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 
-	> *{
+	> * {
 		// V1
 		//-moz-box-flex:1;
 
 		// V2
-		-ms-flex:1.0 0 auto;
+		-ms-flex: 1 0 auto;
 
 		// V3
 		-webkit-flex: 1 1 auto;
@@ -112,8 +112,8 @@
 }
 
 // OPACITY
-.opacity(@val){
-	opacity:@val;
-	@cent:@val*100;
-	filter:~"alpha(opacity=@{cent})";
+.opacity(@val) {
+	opacity: @val;
+	@cent: @val*100;
+	filter: ~'alpha(opacity=@{cent})';
 }
