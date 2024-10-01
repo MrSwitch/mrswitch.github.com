@@ -6,6 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "node ./build.js",
+		"watch": "node --watch-path ./src/ ./build.js",
 		"lint": "eslint ./src/ --fix && prettier --write .",
 		"test": "npm run lint && npm run build"
 	},
@@ -26,7 +27,7 @@
 	},
 	"dependencies": {
 		"adorn-kit": "^1.3.3",
-		"tricks": "^2.0.1"
+		"tricks": "^2.0.2-rc.1"
 	},
 	"prettier": {
 		"bracketSpacing": false,

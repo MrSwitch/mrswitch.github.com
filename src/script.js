@@ -1,53 +1,108 @@
 // Script
 // This script controls the background page
-import getScript from 'tricks/browser/http/getScript.js';
 import el from 'tricks/dom/create.js';
 
-const name = (function () {
-	const a = ['mineField', 'tiledOfLife', 'colorFlood', 'tetris'];
-	return a[Math.floor(Math.random() * a.length)] || a[0];
-})();
+// List of backgrounds
+const backgroundList = ['colorFlood', 'mineField', 'tetris', 'tiledOfLife'];
 
-getScript(`/background/dist/${name}.js`);
+// Preload the backgrounds
+backgroundList.map(script => el("link", {
+	href: `/background/dist/${script}.js`,
+	rel: "preload",
+	as: "script"
+}, [], document.head));
 
+// Pick a random background
+let backgroundIndex = Math.floor(Math.random() * backgroundList.length);
+
+let iframe;
+
+/**
+ * Load the background game
+ */
+function loadBackground(index) {
+	const backgroundSelected = backgroundList.at(backgroundIndex%backgroundList.length);
+	const srcdoc = `
+<body>
+<script src="/background/dist/${backgroundSelected}.js"></script>
+<script>
 // Install background
 self.background = self.background || [];
+</script>
+`;
+	if(iframe) {
+		iframe.srcdoc = srcdoc;
+		return iframe;
+	}
+	
+	return el('iframe', {
+		id: 'background',
+		srcdoc
+	}, [], document.body);
+}
+
+iframe = loadBackground(backgroundIndex);
 
 let bg;
 
-// Push a function to call
-self.background.push(BG => {
-	// Passing in null for target inserts it into the body background
-	bg = BG.init(null);
+const iframeContextWindow = iframe.contentWindow;
 
-	// Setup, without any controls
-	if (bg.setup) {
+iframe.addEventListener('load', () => {
+
+	// Push a function to call
+	iframeContextWindow.background.push(BG => {
+
+		// First time?
+		// Create the controls
+		if (!bg) {
+			el('div', {
+				class: 'controls'
+			}, [
+				el('a', {
+					id: 'prev_btn',
+					text: '◀',
+					click: (e) => {
+						loadBackground(--backgroundIndex);
+						e.stopPropagation();
+					}
+				}),
+				el('a', {
+					text: 'Play',
+					id: 'play_btn',
+					href: '#background',
+					click: (e) => {
+						e.stopPropagation();
+					}
+				}),
+				el('a', {
+					id: 'next_btn',
+					text: '▶',
+					click: (e) => {
+						loadBackground(++backgroundIndex);
+						e.stopPropagation();
+					}
+				})
+			], document.body);
+
+			// Create a controller to listen to toggling between states
+			window.addEventListener('hashchange', hashchange);
+		}
+		
+
+		// Passing in null for target inserts it into the body background
+		bg = BG.init(null);
+
 		// Set default state
-		bg.setup({
+		bg.setup?.({
 			controls: false,
 		});
-	}
 
-	// Is this a configurable background?
-	if (bg.config) {
-		// Create a controller to listen to toggling between states
-		window.addEventListener('hashchange', hashchange);
 		hashchange();
 
-		// Show the controls
-		el('div', {
-			class: 'controls'
-		}, [
-			el('a', {
-				id: 'play_btn',
-				href: '#background',
-				onclick(e) {
-					e.stopPropagation();
-				}
-			}, ['Play'])
-		], document.body);
-	}
+	});
 });
+
+
 
 // Listen to the background trigger to show/hide the background
 function hashchange() {
@@ -59,7 +114,7 @@ function hashchange() {
 		'background'
 	);
 
-	bg.config({controls});
+	bg.config?.({controls});
 }
 
 // Fix ios scrolling issue
