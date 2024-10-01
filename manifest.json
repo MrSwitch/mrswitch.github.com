@@ -1,40 +1,44 @@
 {
-	"name" : "Andrew Dodson's web portfolio",
-	"description" : "Andrew Dodson's portfolio",
+	"name": "Andrew Dodson's web portfolio",
+	"description": "Andrew Dodson's portfolio",
 	"short_name": "a game",
 	"start_url": "/",
 	"theme_color": "#4E5260",
 	"background_color": "white",
-	"icons" : [{
-		"src" : "./favicon.ico",
-		"sizes" : "64x64",
-		"type" : "image/ico"
-	},
-	{
-		"src" : "https://avatars3.githubusercontent.com/u/947163?v=3&s=144",
-		"sizes" : "144x144",
-		"type" : "image/png"
-	},
-	{
-		"src" : "https://avatars3.githubusercontent.com/u/947163?v=3&s=192",
-		"sizes" : "192x192",
-		"type" : "image/png"
-	},
-	{
-		"src" : "https://avatars3.githubusercontent.com/u/947163?v=3&s=512",
-		"sizes" : "512x512",
-		"type" : "image/png"
-	}],
+	"icons": [
+		{
+			"src": "./favicon.ico",
+			"sizes": "64x64",
+			"type": "image/ico"
+		},
+		{
+			"src": "https://avatars3.githubusercontent.com/u/947163?v=3&s=144",
+			"sizes": "144x144",
+			"type": "image/png"
+		},
+		{
+			"src": "https://avatars3.githubusercontent.com/u/947163?v=3&s=192",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "https://avatars3.githubusercontent.com/u/947163?v=3&s=512",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	],
 	"display": "standalone",
 	"orientation": "portrait-primary",
-	"favicon" : "/favicon.ico",
-	"github" : "MrSwitch",
-	"twitter:creator" : "@setData",
-	"author" : "Andrew Dodson, https://adodson.com",
-	"serviceworker" : "/sw.js",
-	"fallover" : [{
-		"mode": "navigate",
-		"fallover": "/offline.html"
-	}],
-	"ga:tracking" : "UA-35317561-1"
+	"favicon": "/favicon.ico",
+	"github": "MrSwitch",
+	"twitter:creator": "@setData",
+	"author": "Andrew Dodson, https://adodson.com",
+	"serviceworker": "/sw.js",
+	"fallover": [
+		{
+			"mode": "navigate",
+			"fallover": "/offline.html"
+		}
+	],
+	"ga:tracking": "UA-35317561-1"
 }

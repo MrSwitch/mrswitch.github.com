@@ -1,4 +1,3 @@
-mrswitch.github.com
-===================
+# mrswitch.github.com
 
 Portfolio landing page
