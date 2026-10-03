@@ -1,0 +1,40 @@
+name: Regenerate projects page
+
+on:
+    schedule:
+        # Every Monday at 06:00 UTC
+        - cron: '0 6 * * 1'
+    workflow_dispatch:
+
+permissions:
+    contents: write
+
+jobs:
+    projects:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+
+            - name: Generate projects/index.md
+              env:
+                  # Must be a personal access token — the script queries the
+                  # authenticated user (viewer), so the default GITHUB_TOKEN
+                  # (a bot identity) would return the wrong profile.
+                  GITHUB_TOKEN: ${{ secrets.PROJECTS_TOKEN }}
+              run: node ./scripts/generate-projects.js
+
+            - name: Commit and push changes
+              run: |
+                  if git diff --quiet projects/index.md; then
+                      echo "No changes to commit"
+                      exit 0
+                  fi
+                  git config user.name "github-actions[bot]"
+                  git config user.email "github-actions[bot]@users.noreply.github.com"
+                  git add projects/index.md
+                  git commit -m "chore: regenerate projects page"
+                  git push
