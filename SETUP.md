@@ -1,0 +1,1 @@
+mrswitch.github.map.fastly.net

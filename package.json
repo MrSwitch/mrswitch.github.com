@@ -6,6 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "node ./build.js",
+		"projects": "node ./scripts/generate-projects.js",
 		"watch": "node --watch-path ./src/ ./build.js",
 		"lint": "eslint ./src/ --fix && prettier --write .",
 		"test": "npm run lint && npm run build"
