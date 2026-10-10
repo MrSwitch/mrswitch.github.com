@@ -40,26 +40,52 @@ const OUT_FILE = join(ROOT, 'projects', 'index.md');
 // GraphQL helpers
 // ---------------------------------------------------------------------------
 
+const MAX_RETRIES = 5;
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 async function graphql(query, variables = {}) {
-	const res = await fetch(API, {
-		method: 'POST',
-		headers: {
-			Authorization: `Bearer ${TOKEN}`,
-			'Content-Type': 'application/json',
-			'User-Agent': 'generate-projects-script',
-		},
-		body: JSON.stringify({query, variables}),
-	});
+	for (let attempt = 0; ; attempt++) {
+		let res;
+		try {
+			res = await fetch(API, {
+				method: 'POST',
+				headers: {
+					Authorization: `Bearer ${TOKEN}`,
+					'Content-Type': 'application/json',
+					'User-Agent': 'generate-projects-script',
+				},
+				body: JSON.stringify({query, variables}),
+			});
+		} catch (err) {
+			// Network error — retry
+			if (attempt < MAX_RETRIES) {
+				const delay = 1000 * 2 ** attempt;
+				console.warn(`Request failed (${err.message}), retrying in ${delay}ms…`);
+				await sleep(delay);
+				continue;
+			}
+			throw err;
+		}
 
-	if (!res.ok) {
-		throw new Error(`GitHub API error: ${res.status} ${res.statusText}`);
-	}
+		if (!res.ok) {
+			// Retry transient server errors and rate limiting
+			if ((res.status >= 500 || res.status === 429) && attempt < MAX_RETRIES) {
+				const delay = 1000 * 2 ** attempt;
+				console.warn(
+					`GitHub API error: ${res.status} ${res.statusText}, retrying in ${delay}ms…`
+				);
+				await sleep(delay);
+				continue;
+			}
+			throw new Error(`GitHub API error: ${res.status} ${res.statusText}`);
+		}
 
-	const {data, errors} = await res.json();
-	if (errors?.length) {
-		throw new Error(errors.map((e) => e.message).join('\n'));
+		const {data, errors} = await res.json();
+		if (errors?.length) {
+			throw new Error(errors.map((e) => e.message).join('\n'));
+		}
+		return data;
 	}
-	return data;
 }
 
 const REPO_FRAGMENT = `
