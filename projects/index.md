@@ -33,7 +33,7 @@ repositories, aggregated anonymously (`█` public commits, `░` private).
 | 2012 | 398 | 6 | `██████▏` |
 | 2011 | 123 | 132 | `█▉░░` |
 
-**All time:** 3511 public commits · 9070 private contributions · 579 pull requests · 135 issues · 66 reviews
+**All time:** 3511 public commits · 9070 private contributions · 580 pull requests · 135 issues · 66 reviews
 
 
 ```mermaid
@@ -44,10 +44,10 @@ pie showData title Commits by project (top 10)
     "_packages" : 108
     "node-oauth-shim" : 101
     "adorn" : 97
-    "mrswitch.github.com" : 81
     "peer.js" : 55
     "background" : 48
     "chisenhale.directory" : 46
+    "Toobify" : 41
 ```
 
 ---
@@ -71,7 +71,7 @@ Tricks and tips in ES
 | Metric | Count | Graph |
 | --- | ---: | :--- |
 | Commits | 183 | `████` |
-| Pull requests | 42 | `███▊` |
+| Pull requests | 43 | `███▊` |
 | Issues created | 0 | `` |
 | Issues completed | 0 | `` |
 
@@ -97,31 +97,6 @@ Vibe coded by a 10 year old 😃
 | --- | ---: | :--- |
 | Commits | 9 | `▎` |
 | Pull requests | 0 | `` |
-| Issues created | 0 | `` |
-| Issues completed | 0 | `` |
-
----
-
-## [mrswitch.github.com](https://github.com/MrSwitch/mrswitch.github.com)
-
-Portfolio landing page renamed to adodson.com
-
-**Active:** Sept 2012 – Oct 2026
-
-**Links:** [Repository](https://github.com/MrSwitch/mrswitch.github.com) · [Website](https://adodson.com) · [Issues](https://github.com/MrSwitch/mrswitch.github.com/issues)
-
-**Languages:**
-
-`█████████████████████░░░░░████`
-
-`JavaScript` 71.6% · `Less` 16.4% · `HTML` 12.1%
-
-**My contributions:**
-
-| Metric | Count | Graph |
-| --- | ---: | :--- |
-| Commits | 81 | `█▊` |
-| Pull requests | 10 | `▉` |
 | Issues created | 0 | `` |
 | Issues completed | 0 | `` |
 

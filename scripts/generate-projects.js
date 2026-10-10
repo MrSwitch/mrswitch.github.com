@@ -487,6 +487,10 @@ const [yearlyContributions, owned, contributed] = await Promise.all([
 const seen = new Set();
 const repos = [...owned, ...contributed]
 	.filter((r) => !r.isFork)
+	// Exclude this site's own repository
+	.filter(
+		(r) => r.name.toLowerCase() !== `${viewer.login.toLowerCase()}.github.com`
+	)
 	.filter((r) => !seen.has(r.nameWithOwner) && seen.add(r.nameWithOwner))
 	// Most recently active first
 	.sort((a, b) => new Date(b.pushedAt) - new Date(a.pushedAt));
