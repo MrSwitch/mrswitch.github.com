@@ -7,7 +7,7 @@ title: Projects
 
 Projects created or contributed to by [@MrSwitch](https://github.com/MrSwitch).
 
-_Generated on 2026-10-03 — do not edit by hand, run `npm run projects`._
+_Generated on 2026-10-10 — do not edit by hand, run `npm run projects`._
 
 ## Contribution history
 
@@ -16,24 +16,24 @@ repositories, aggregated anonymously (`█` public commits, `░` private).
 
 | Year | Commits | Private | Graph |
 | --- | ---: | ---: | :--- |
-| 2011 | 123 | 132 | `██░░▏` |
-| 2012 | 398 | 6 | `██████▍▏` |
-| 2013 | 531 | 117 | `████████▌░▉` |
-| 2014 | 740 | 62 | `███████████▉░` |
-| 2015 | 761 | 114 | `████████████▎░▉` |
-| 2016 | 179 | 377 | `██▉░░░░░░` |
-| 2017 | 50 | 454 | `▊░░░░░░░▎` |
-| 2018 | 63 | 650 | `█░░░░░░░░░░▌` |
-| 2019 | 76 | 706 | `█▎░░░░░░░░░░░▍` |
-| 2020 | 108 | 1178 | `█▊░░░░░░░░░░░░░░░░░░▉` |
-| 2021 | 104 | 991 | `█▋░░░░░░░░░░░░░░░▉` |
-| 2022 | 95 | 654 | `█▌░░░░░░░░░░▌` |
-| 2023 | 60 | 555 | `█░░░░░░░░▉` |
-| 2024 | 54 | 621 | `▉░░░░░░░░░░` |
-| 2025 | 76 | 895 | `█▎░░░░░░░░░░░░░░▍` |
-| 2026 | 81 | 1475 | `█▎░░░░░░░░░░░░░░░░░░░░░░░▊` |
+| 2026 | 93 | 1558 | `█▍░░░░░░░░░░░░░░░░░░░░░░░▋` |
+| 2025 | 76 | 895 | `█▏░░░░░░░░░░░░░▌` |
+| 2024 | 54 | 621 | `▉░░░░░░░░░▍` |
+| 2023 | 60 | 555 | `▉░░░░░░░░▍` |
+| 2022 | 95 | 654 | `█▌░░░░░░░░░▉` |
+| 2021 | 104 | 991 | `█▋░░░░░░░░░░░░░░░` |
+| 2020 | 108 | 1178 | `█▋░░░░░░░░░░░░░░░░░▉` |
+| 2019 | 76 | 706 | `█▏░░░░░░░░░░▊` |
+| 2018 | 63 | 650 | `█░░░░░░░░░▉` |
+| 2017 | 50 | 454 | `▊░░░░░░▉` |
+| 2016 | 179 | 377 | `██▊░░░░░▊` |
+| 2015 | 761 | 114 | `███████████▌░▊` |
+| 2014 | 740 | 62 | `███████████▎░` |
+| 2013 | 531 | 117 | `████████░▊` |
+| 2012 | 398 | 6 | `██████▏` |
+| 2011 | 123 | 132 | `█▉░░` |
 
-**All time:** 3499 public commits · 8987 private contributions · 576 pull requests · 135 issues · 66 reviews
+**All time:** 3511 public commits · 9070 private contributions · 580 pull requests · 135 issues · 66 reviews
 
 
 ```mermaid
@@ -44,17 +44,69 @@ pie showData title Commits by project (top 10)
     "_packages" : 108
     "node-oauth-shim" : 101
     "adorn" : 97
-    "mrswitch.github.com" : 79
     "peer.js" : 55
     "background" : 48
     "chisenhale.directory" : 46
+    "Toobify" : 41
 ```
+
+---
+
+## [tricks](https://github.com/MrSwitch/tricks)
+
+Tricks and tips in ES
+
+**Active:** Sept 2015 – Oct 2026
+
+**Links:** [Repository](https://github.com/MrSwitch/tricks) · [Website](https://adodson.com/tricks/) · [Issues](https://github.com/MrSwitch/tricks/issues)
+
+**Languages:**
+
+`██████████████████████████████░`
+
+`JavaScript` 99.1% · `HTML` 0.9%
+
+**My contributions:**
+
+| Metric | Count | Graph |
+| --- | ---: | :--- |
+| Commits | 183 | `████` |
+| Pull requests | 43 | `███▊` |
+| Issues created | 0 | `` |
+| Issues completed | 0 | `` |
+
+---
+
+## [blockfighter](https://github.com/MrSwitch/blockfighter)
+
+Vibe coded by a 10 year old 😃
+
+**Active:** Oct 2026 – Oct 2026
+
+**Links:** [Repository](https://github.com/MrSwitch/blockfighter) · [Issues](https://github.com/MrSwitch/blockfighter/issues)
+
+**Languages:**
+
+`█████████████████████████████░█`
+
+`TypeScript` 97.1% · `HTML` 2.2% · `CSS` 0.7%
+
+**My contributions:**
+
+| Metric | Count | Graph |
+| --- | ---: | :--- |
+| Commits | 9 | `▎` |
+| Pull requests | 0 | `` |
+| Issues created | 0 | `` |
+| Issues completed | 0 | `` |
 
 ---
 
 ## [chisenhale.directory](https://github.com/MrSwitch/chisenhale.directory)
 
 Chisenhale Primary School's PTA Directory website, aka "Little Black Book". Promoting community businesses, of interest to parents and teachers, in recognition for their sponsorship towards the schools PTA fund.
+
+**Active:** Apr 2025 – Oct 2026
 
 **Links:** [Repository](https://github.com/MrSwitch/chisenhale.directory) · [Website](http://chisenhale.directory/) · [Issues](https://github.com/MrSwitch/chisenhale.directory/issues)
 
@@ -81,7 +133,9 @@ Chisenhale Primary School's PTA Directory website, aka "Little Black Book". Prom
 
 Database and REST
 
-**Links:** [Repository](https://github.com/MrSwitch/dare) · [Website](https://www.npmjs.com/package/dare) · [Issues](https://github.com/MrSwitch/dare/issues)
+**Active:** May 2016 – Sept 2026
+
+**Links:** [Repository](https://github.com/MrSwitch/dare) · [Website](https://adodson.com/dare) · [Issues](https://github.com/MrSwitch/dare/issues)
 
 **Tags:** `#sql` `#sql-condition` `#database` `#schema`
 
@@ -106,6 +160,8 @@ Database and REST
 
 computation paradigms supported by the browser
 
+**Active:** Sept 2026 – Sept 2026
+
 **Links:** [Repository](https://github.com/MrSwitch/optimus-primes) · [Website](https://adodson.com/optimus-primes) · [Issues](https://github.com/MrSwitch/optimus-primes/issues)
 
 **Languages:**
@@ -129,6 +185,8 @@ computation paradigms supported by the browser
 
 A Javascript RESTFUL API library for connecting with OAuth2 services, such as Google+ API, Facebook Graph and Windows Live Connect
 
+**Active:** Aug 2011 – Jan 2026
+
 **Links:** [Repository](https://github.com/MrSwitch/hello.js) · [Website](https://adodson.com/hello.js/) · [Issues](https://github.com/MrSwitch/hello.js/issues)
 
 **Languages:**
@@ -148,32 +206,11 @@ A Javascript RESTFUL API library for connecting with OAuth2 services, such as Go
 
 ---
 
-## [tricks](https://github.com/MrSwitch/tricks)
-
-Tricks and tips in ES
-
-**Links:** [Repository](https://github.com/MrSwitch/tricks) · [Website](https://adodson.com/tricks/) · [Issues](https://github.com/MrSwitch/tricks/issues)
-
-**Languages:**
-
-`██████████████████████████████░`
-
-`JavaScript` 99.1% · `HTML` 0.9%
-
-**My contributions:**
-
-| Metric | Count | Graph |
-| --- | ---: | :--- |
-| Commits | 183 | `████` |
-| Pull requests | 40 | `███▌` |
-| Issues created | 0 | `` |
-| Issues completed | 0 | `` |
-
----
-
 ## [adorn](https://github.com/MrSwitch/adorn)
 
 Drop a `<link type=stylesheet href="adorn.css"/>` and a `<script src="adorn.js"/>` onto a an HTML page generated from markdown and watch it sparkle ✨
+
+**Active:** Sept 2014 – Jun 2025
 
 **Links:** [Repository](https://github.com/MrSwitch/adorn) · [Website](https://adodson.com/adorn/) · [Issues](https://github.com/MrSwitch/adorn/issues)
 
@@ -194,32 +231,11 @@ Drop a `<link type=stylesheet href="adorn.css"/>` and a `<script src="adorn.js"/
 
 ---
 
-## [mrswitch.github.com](https://github.com/MrSwitch/mrswitch.github.com)
-
-Portfolio landing page renamed to adodson.com
-
-**Links:** [Repository](https://github.com/MrSwitch/mrswitch.github.com) · [Website](https://mrswitch.github.io) · [Issues](https://github.com/MrSwitch/mrswitch.github.com/issues)
-
-**Languages:**
-
-`████████████░░░░░░░░░████████`
-
-`Less` 40.7% · `JavaScript` 31.6% · `HTML` 27.7%
-
-**My contributions:**
-
-| Metric | Count | Graph |
-| --- | ---: | :--- |
-| Commits | 79 | `█▊` |
-| Pull requests | 9 | `▊` |
-| Issues created | 0 | `` |
-| Issues completed | 0 | `` |
-
----
-
 ## [background](https://github.com/MrSwitch/background)
 
 Canvas based background animations
+
+**Active:** Aug 2015 – Oct 2024
 
 **Links:** [Repository](https://github.com/MrSwitch/background) · [Website](https://adodson.com/background) · [Issues](https://github.com/MrSwitch/background/issues)
 
@@ -244,6 +260,8 @@ Canvas based background animations
 
 Node static file server
 
+**Active:** Sept 2015 – Sept 2024
+
 **Links:** [Repository](https://github.com/MrSwitch/localhost) · [Website](https://adodson.com/localhost/) · [Issues](https://github.com/MrSwitch/localhost/issues)
 
 **Languages:**
@@ -266,6 +284,8 @@ Node static file server
 ## [node-oauth-shim](https://github.com/MrSwitch/node-oauth-shim)
 
 Node OAuth Shim is a RESTful way to authenticate and sign request with OAuth1/1a endpoints 
+
+**Active:** Jul 2013 – Jun 2020
 
 **Links:** [Repository](https://github.com/MrSwitch/node-oauth-shim) · [Website](https://npmjs.org/package/oauth-shim) · [Issues](https://github.com/MrSwitch/node-oauth-shim/issues)
 
@@ -290,6 +310,8 @@ Node OAuth Shim is a RESTful way to authenticate and sign request with OAuth1/1a
 
 Toobify website, youtube player
 
+**Active:** Jul 2011 – Oct 2016
+
 **Links:** [Repository](https://github.com/MrSwitch/Toobify) · [Website](http://toobify.com) · [Issues](https://github.com/MrSwitch/Toobify/issues)
 
 **Languages:**
@@ -312,6 +334,8 @@ Toobify website, youtube player
 ## [node-shunt](https://github.com/MrSwitch/node-shunt)
 
 A shit alternative to grunt for combining and minifying code for production
+
+**Active:** Jul 2013 – Jul 2016
 
 **Links:** [Repository](https://github.com/MrSwitch/node-shunt) · [Issues](https://github.com/MrSwitch/node-shunt/issues)
 
@@ -336,6 +360,8 @@ A shit alternative to grunt for combining and minifying code for production
 
 Implementation of HelloJS in a Chrome Application
 
+**Active:** Jul 2015 – Jul 2016
+
 **Links:** [Repository](https://github.com/MrSwitch/hellojs-chromeapp-demo) · [Issues](https://github.com/MrSwitch/hellojs-chromeapp-demo/issues)
 
 **Languages:**
@@ -357,6 +383,8 @@ Implementation of HelloJS in a Chrome Application
 
 ## [base64-cli](https://github.com/MrSwitch/base64-cli)
 
+**Active:** Jul 2016 – Jul 2016
+
 **Links:** [Repository](https://github.com/MrSwitch/base64-cli) · [Issues](https://github.com/MrSwitch/base64-cli/issues)
 
 **Languages:**
@@ -377,6 +405,8 @@ Implementation of HelloJS in a Chrome Application
 ---
 
 ## [pant-y-lon](https://github.com/MrSwitch/pant-y-lon)
+
+**Active:** Jul 2016 – Jul 2016
 
 **Links:** [Repository](https://github.com/MrSwitch/pant-y-lon) · [Issues](https://github.com/MrSwitch/pant-y-lon/issues)
 
@@ -401,6 +431,8 @@ Implementation of HelloJS in a Chrome Application
 
 A NodeJS API for signing and sending calls to the BrightCove CMS API
 
+**Active:** Nov 2015 – Jul 2016
+
 **Links:** [Repository](https://github.com/MrSwitch/brightcove-api) · [Issues](https://github.com/MrSwitch/brightcove-api/issues)
 
 **Languages:**
@@ -423,6 +455,8 @@ A NodeJS API for signing and sending calls to the BrightCove CMS API
 ## [peer.js](https://github.com/MrSwitch/peer.js)
 
 A multipeer WebRTC client
+
+**Active:** Jul 2012 – Jun 2016
 
 **Links:** [Repository](https://github.com/MrSwitch/peer.js) · [Website](http://adodson.com/peer.js) · [Issues](https://github.com/MrSwitch/peer.js/issues)
 
@@ -447,6 +481,8 @@ A multipeer WebRTC client
 
 Edge Side Includes processing for Node environments
 
+**Active:** Jul 2014 – Jun 2016
+
 **Links:** [Repository](https://github.com/MrSwitch/esi) · [Website](https://www.npmjs.org/package/esi) · [Issues](https://github.com/MrSwitch/esi/issues)
 
 **Languages:**
@@ -469,6 +505,8 @@ Edge Side Includes processing for Node environments
 ## [notification.js](https://github.com/MrSwitch/notification.js)
 
 A shim polyfill for adding notifications to browsers which offer limited support
+
+**Active:** Aug 2011 – Jun 2016
 
 **Links:** [Repository](https://github.com/MrSwitch/notification.js) · [Website](https://adodson.com/notification.js/) · [Issues](https://github.com/MrSwitch/notification.js/issues)
 
@@ -493,6 +531,8 @@ A shim polyfill for adding notifications to browsers which offer limited support
 
 Demo application of Hello.js running inside Phonegap
 
+**Active:** Mar 2014 – Feb 2016
+
 **Links:** [Repository](https://github.com/MrSwitch/hellojs-phonegap-demo) · [Issues](https://github.com/MrSwitch/hellojs-phonegap-demo/issues)
 
 **Languages:**
@@ -515,6 +555,8 @@ Demo application of Hello.js running inside Phonegap
 ## [hellojs-signin-demo](https://github.com/MrSwitch/hellojs-signin-demo)
 
 Demo of using HelloJS with a backend login and session management
+
+**Active:** Nov 2015 – Jan 2016
 
 **Links:** [Repository](https://github.com/MrSwitch/hellojs-signin-demo) · [Website](https://hellojs-signin-demo.herokuapp.com) · [Issues](https://github.com/MrSwitch/hellojs-signin-demo/issues)
 
@@ -539,6 +581,8 @@ Demo of using HelloJS with a backend login and session management
 
 CSS in the Shadow DOM
 
+**Active:** Dec 2014 – Oct 2015
+
 **Links:** [Repository](https://github.com/MrSwitch/css-in-the-shadow-dom) · [Website](http://adodson.com/css-in-the-shadow-dom/) · [Issues](https://github.com/MrSwitch/css-in-the-shadow-dom/issues)
 
 **Languages:**
@@ -561,6 +605,8 @@ CSS in the Shadow DOM
 ## [dropfile](https://github.com/MrSwitch/dropfile)
 
 Dropfile is a shim which uses Silverlight to recreate the part of the HTML5 FileAPI which lets us drag files into the IE browser and read em'
+
+**Active:** Jul 2011 – Oct 2015
 
 **Links:** [Repository](https://github.com/MrSwitch/dropfile) · [Website](http://adodson.com/dropfile/) · [Issues](https://github.com/MrSwitch/dropfile/issues)
 
@@ -585,6 +631,8 @@ Dropfile is a shim which uses Silverlight to recreate the part of the HTML5 File
 
 workspace.js a jquery plugin for making frameset's and moveable content
 
+**Active:** May 2012 – Sept 2015
+
 **Links:** [Repository](https://github.com/MrSwitch/workspace.js) · [Website](http://adodson.com/workspace.js/) · [Issues](https://github.com/MrSwitch/workspace.js/issues)
 
 **Languages:**
@@ -607,6 +655,8 @@ workspace.js a jquery plugin for making frameset's and moveable content
 ## [selfie](https://github.com/MrSwitch/selfie)
 
 Strike a pose
+
+**Active:** Sept 2015 – Sept 2015
 
 **Links:** [Repository](https://github.com/MrSwitch/selfie) · [Website](https://adodson.com/selfie/) · [Issues](https://github.com/MrSwitch/selfie/issues)
 
@@ -631,6 +681,8 @@ Strike a pose
 
 Keyboard Demo using the Audio API
 
+**Active:** Jun 2013 – Sept 2015
+
 **Links:** [Repository](https://github.com/MrSwitch/keyboard) · [Issues](https://github.com/MrSwitch/keyboard/issues)
 
 **Languages:**
@@ -653,6 +705,8 @@ Keyboard Demo using the Audio API
 ## [dear](https://github.com/MrSwitch/dear)
 
 NodeJS RESTful helper
+
+**Active:** Sept 2014 – Aug 2015
 
 **Links:** [Repository](https://github.com/MrSwitch/dear) · [Issues](https://github.com/MrSwitch/dear/issues)
 
@@ -677,6 +731,8 @@ NodeJS RESTful helper
 
 Web based document editor
 
+**Active:** Nov 2011 – Aug 2015
+
 **Links:** [Repository](https://github.com/MrSwitch/CopyAndPasted) · [Website](copyandpasted.com) · [Issues](https://github.com/MrSwitch/CopyAndPasted/issues)
 
 **Languages:**
@@ -699,6 +755,8 @@ Web based document editor
 ## [require-sync.js](https://github.com/MrSwitch/require-sync.js)
 
 Synchronous browser resource loader for loading scripts inline. Not AMD but SMD (Synchronous Module Definition)
+
+**Active:** Mar 2014 – Apr 2015
 
 **Links:** [Repository](https://github.com/MrSwitch/require-sync.js) · [Website](http://adodson.com/require-sync.js) · [Issues](https://github.com/MrSwitch/require-sync.js/issues)
 
@@ -723,6 +781,8 @@ Synchronous browser resource loader for loading scripts inline. Not AMD but SMD 
 
 A proxy server for Heroku written in NodeJS
 
+**Active:** Jan 2013 – Apr 2015
+
 **Links:** [Repository](https://github.com/MrSwitch/proxy-server) · [Issues](https://github.com/MrSwitch/proxy-server/issues)
 
 **Languages:**
@@ -746,6 +806,8 @@ A proxy server for Heroku written in NodeJS
 
 Another HTML5 Forms shim
 
+**Active:** Jan 2012 – Feb 2015
+
 **Links:** [Repository](https://github.com/MrSwitch/jquery.form.js) · [Website](http://adodson.com/jquery.form.js/) · [Issues](https://github.com/MrSwitch/jquery.form.js/issues)
 
 **Languages:**
@@ -766,6 +828,8 @@ Another HTML5 Forms shim
 ---
 
 ## [snowshoe.js](https://github.com/MrSwitch/snowshoe.js)
+
+**Active:** Sept 2014 – Sept 2014
 
 **Links:** [Repository](https://github.com/MrSwitch/snowshoe.js) · [Website](http://adodson.com/snowshoe.js) · [Issues](https://github.com/MrSwitch/snowshoe.js/issues)
 
@@ -790,6 +854,8 @@ Another HTML5 Forms shim
 
 Game of snap... made on a lazy Monday afternoon
 
+**Active:** Oct 2013 – Sept 2014
+
 **Links:** [Repository](https://github.com/MrSwitch/sn-ap) · [Website](http://adodson.com/sn-ap) · [Issues](https://github.com/MrSwitch/sn-ap/issues)
 
 **Languages:**
@@ -812,6 +878,8 @@ Game of snap... made on a lazy Monday afternoon
 ## [raphael.charts.js](https://github.com/MrSwitch/raphael.charts.js)
 
 Animated pie and bar graphs extensions to RaphaelJs
+
+**Active:** Dec 2012 – Sept 2014
 
 **Links:** [Repository](https://github.com/MrSwitch/raphael.charts.js) · [Website](http://adodson.com/raphael.charts.js/) · [Issues](https://github.com/MrSwitch/raphael.charts.js/issues)
 
@@ -836,6 +904,8 @@ Animated pie and bar graphs extensions to RaphaelJs
 
 Notification plugin for jquery
 
+**Active:** Sept 2011 – Sept 2014
+
 **Links:** [Repository](https://github.com/MrSwitch/jquery-notify.js) · [Website](http://mrswitch.github.com/jquery-notify.js/) · [Issues](https://github.com/MrSwitch/jquery-notify.js/issues)
 
 **My contributions:**
@@ -852,6 +922,8 @@ Notification plugin for jquery
 ## [jquery.share.js](https://github.com/MrSwitch/jquery.share.js)
 
 Creates buttons which deep link to popular social sites. And also displays a number of how many people have share then link
+
+**Active:** Feb 2012 – Sept 2014
 
 **Links:** [Repository](https://github.com/MrSwitch/jquery.share.js) · [Website](http://adodson.com/jquery.share.js) · [Issues](https://github.com/MrSwitch/jquery.share.js/issues)
 
@@ -876,6 +948,8 @@ Creates buttons which deep link to popular social sites. And also displays a num
 
 A non-blocking prompt plugin
 
+**Active:** Jan 2012 – Sept 2014
+
 **Links:** [Repository](https://github.com/MrSwitch/jquery.prompt.js) · [Website](http://adodson.com/jquery.prompt.js) · [Issues](https://github.com/MrSwitch/jquery.prompt.js/issues)
 
 **Languages:**
@@ -898,6 +972,8 @@ A non-blocking prompt plugin
 ## [css-effects](https://github.com/MrSwitch/css-effects)
 
 A collection of CSS icons, animations and other effects written as LESS mixins
+
+**Active:** Dec 2013 – Sept 2014
 
 **Links:** [Repository](https://github.com/MrSwitch/css-effects) · [Website](http://adodson.com/css-effects) · [Issues](https://github.com/MrSwitch/css-effects/issues)
 
@@ -922,6 +998,8 @@ A collection of CSS icons, animations and other effects written as LESS mixins
 
 third party packages
 
+**Active:** Mar 2012 – Sept 2014
+
 **Links:** [Repository](https://github.com/MrSwitch/_packages) · [Issues](https://github.com/MrSwitch/_packages/issues)
 
 **Languages:**
@@ -944,6 +1022,8 @@ third party packages
 ## [hello-amd](https://github.com/MrSwitch/hello-amd)
 
 Demo customizing modules from HelloJS for use in a project via RequireJS
+
+**Active:** May 2014 – May 2014
 
 **Links:** [Repository](https://github.com/MrSwitch/hello-amd) · [Issues](https://github.com/MrSwitch/hello-amd/issues)
 
@@ -968,6 +1048,8 @@ Demo customizing modules from HelloJS for use in a project via RequireJS
 
 Create movies from news articles
 
+**Active:** May 2014 – May 2014
+
 **Links:** [Repository](https://github.com/MrSwitch/moviemagic) · [Issues](https://github.com/MrSwitch/moviemagic/issues)
 
 **Languages:**
@@ -990,6 +1072,8 @@ Create movies from news articles
 ## [rivets-demo](https://github.com/MrSwitch/rivets-demo)
 
 A collection of rivets examples
+
+**Active:** Jan 2014 – Jan 2014
 
 **Links:** [Repository](https://github.com/MrSwitch/rivets-demo) · [Website](http://adodson.com/rivets-demo) · [Issues](https://github.com/MrSwitch/rivets-demo/issues)
 
@@ -1014,6 +1098,8 @@ A collection of rivets examples
 
 Demo's techniques to shim IE8 for Rivets
 
+**Active:** Dec 2013 – Dec 2013
+
 **Links:** [Repository](https://github.com/MrSwitch/rivets-ie8-demo) · [Website](http://adodson.com/rivets-ie8-demo) · [Issues](https://github.com/MrSwitch/rivets-ie8-demo/issues)
 
 **Languages:**
@@ -1036,6 +1122,8 @@ Demo's techniques to shim IE8 for Rivets
 ## [graffiti](https://github.com/MrSwitch/graffiti)
 
 Demo of the FileAPI, OAuth2 and XMLHttpRequest: Load images into the client from the local computer of SkyDrive, download to the local computer or upload to Skydrive
+
+**Active:** Sept 2012 – May 2013
 
 **Links:** [Repository](https://github.com/MrSwitch/graffiti) · [Website](http://adodson.com/graffiti) · [Issues](https://github.com/MrSwitch/graffiti/issues)
 
@@ -1060,6 +1148,8 @@ Demo of the FileAPI, OAuth2 and XMLHttpRequest: Load images into the client from
 
 Backend relay server for peer.js. This facilitates the finding of other people, the sharing WebRTC PeerConnections to establish browser-to-browser peer connections
 
+**Active:** Feb 2013 – Feb 2013
+
 **Links:** [Repository](https://github.com/MrSwitch/peer-server.js) · [Issues](https://github.com/MrSwitch/peer-server.js/issues)
 
 **Languages:**
@@ -1082,6 +1172,8 @@ Backend relay server for peer.js. This facilitates the finding of other people, 
 ## [eightquery-capture.js](https://github.com/MrSwitch/eightquery-capture.js)
 
 jQuery wrapper for the Windows 8 WinRT Media Capture API
+
+**Active:** Sept 2011 – Feb 2013
 
 **Links:** [Repository](https://github.com/MrSwitch/eightquery-capture.js) · [Issues](https://github.com/MrSwitch/eightquery-capture.js/issues)
 
@@ -1106,6 +1198,8 @@ jQuery wrapper for the Windows 8 WinRT Media Capture API
 
 Testing out Backbone.js + Underscrore.js templates with Flickr search... 
 
+**Active:** Nov 2011 – Nov 2012
+
 **Links:** [Repository](https://github.com/MrSwitch/pic-n-flick) · [Website](http://MrSwitch.github.com/pic-n-flick/) · [Issues](https://github.com/MrSwitch/pic-n-flick/issues)
 
 **Languages:**
@@ -1128,6 +1222,8 @@ Testing out Backbone.js + Underscrore.js templates with Flickr search...
 ## [pin.js](https://github.com/MrSwitch/pin.js)
 
 IE9 Sitemode tools
+
+**Active:** Oct 2011 – Oct 2012
 
 **Links:** [Repository](https://github.com/MrSwitch/pin.js) · [Website](http://adodson.com/pin.js/) · [Issues](https://github.com/MrSwitch/pin.js/issues)
 
@@ -1152,6 +1248,8 @@ IE9 Sitemode tools
 
 opentok
 
+**Active:** Apr 2012 – Jul 2012
+
 **Links:** [Repository](https://github.com/MrSwitch/opentok) · [Website](mrswitch.github.com/opentok/) · [Issues](https://github.com/MrSwitch/opentok/issues)
 
 **Languages:**
@@ -1174,6 +1272,8 @@ opentok
 ## [jquery.getUserMedia.js](https://github.com/MrSwitch/jquery.getUserMedia.js)
 
 A jQuery plugin to shim the getUserMedia API with a Flash fallback.
+
+**Active:** Jun 2012 – Jul 2012
 
 **Links:** [Repository](https://github.com/MrSwitch/jquery.getUserMedia.js) · [Issues](https://github.com/MrSwitch/jquery.getUserMedia.js/issues)
 
@@ -1198,6 +1298,8 @@ A jQuery plugin to shim the getUserMedia API with a Flash fallback.
 
 A jQuery plugin to quickly add Seadragon a Deep Image Zoom to a webpage
 
+**Active:** Aug 2011 – Sept 2011
+
 **Links:** [Repository](https://github.com/MrSwitch/jquery-seadragon.js) · [Website](http://adodson.com/jquery-seadragon.js) · [Issues](https://github.com/MrSwitch/jquery-seadragon.js/issues)
 
 **My contributions:**
@@ -1214,6 +1316,8 @@ A jQuery plugin to quickly add Seadragon a Deep Image Zoom to a webpage
 ## [LiveExperiments](https://github.com/MrSwitch/LiveExperiments)
 
 Website hosting Windows Live Messenger Connect API demos
+
+**Active:** Jul 2011 – Jul 2011
 
 **Links:** [Repository](https://github.com/MrSwitch/LiveExperiments) · [Website](http://liveexperiments.com) · [Issues](https://github.com/MrSwitch/LiveExperiments/issues)
 
