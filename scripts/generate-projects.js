@@ -74,6 +74,7 @@ const REPO_FRAGMENT = `
 		stargazerCount
 		openGraphImageUrl
 		usesCustomOpenGraphImage
+		createdAt
 		pushedAt
 		owner {
 			login
@@ -274,6 +275,15 @@ function languageBar(languages, width = 30) {
 // Markdown rendering
 // ---------------------------------------------------------------------------
 
+/** Format an ISO date as e.g. "Jan 2012". */
+function formatMonth(iso) {
+	return new Date(iso).toLocaleDateString('en-GB', {
+		month: 'short',
+		year: 'numeric',
+		timeZone: 'UTC',
+	});
+}
+
 function renderProject(repo, maxCommits, maxIssues) {
 	const lines = [];
 	const commits = repo.defaultBranchRef?.target?.myCommits?.totalCount ?? 0;
@@ -296,6 +306,10 @@ function renderProject(repo, maxCommits, maxIssues) {
 		lines.push(repo.description);
 		lines.push('');
 	}
+
+	// Start and end dates (created → last push)
+	lines.push(`**Active:** ${formatMonth(repo.createdAt)} – ${formatMonth(repo.pushedAt)}`);
+	lines.push('');
 
 	// Links
 	const links = [`[Repository](${repo.url})`];
@@ -396,10 +410,13 @@ function renderYearlyContributions(years) {
 		'',
 		'| Year | Commits | Private | Graph |',
 		'| --- | ---: | ---: | :--- |',
-		...active.map(
-			(y) =>
-				`| ${y.year} | ${y.commits} | ${y.private} | \`${bar(y.commits, max, 25)}${bar(y.private, max, 25).replace(/█/g, '░')}\` |`
-		),
+		...active
+			.slice()
+			.reverse()
+			.map(
+				(y) =>
+					`| ${y.year} | ${y.commits} | ${y.private} | \`${bar(y.commits, max, 25)}${bar(y.private, max, 25).replace(/█/g, '░')}\` |`
+			),
 		'',
 		`**All time:** ${totals.commits} public commits · ${totals.private} private contributions · ${totals.pullRequests} pull requests · ${totals.issues} issues · ${totals.reviews} reviews`,
 		'',
