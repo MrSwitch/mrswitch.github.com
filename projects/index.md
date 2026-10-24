@@ -7,7 +7,7 @@ title: Projects
 
 Projects created or contributed to by [@MrSwitch](https://github.com/MrSwitch).
 
-_Generated on 2026-10-10 — do not edit by hand, run `npm run projects`._
+_Generated on 2026-10-24 — do not edit by hand, run `npm run projects`._
 
 ## Contribution history
 
@@ -16,39 +16,91 @@ repositories, aggregated anonymously (`█` public commits, `░` private).
 
 | Year | Commits | Private | Graph |
 | --- | ---: | ---: | :--- |
-| 2026 | 93 | 1558 | `█▍░░░░░░░░░░░░░░░░░░░░░░░▋` |
-| 2025 | 76 | 895 | `█▏░░░░░░░░░░░░░▌` |
-| 2024 | 54 | 621 | `▉░░░░░░░░░▍` |
-| 2023 | 60 | 555 | `▉░░░░░░░░▍` |
-| 2022 | 95 | 654 | `█▌░░░░░░░░░▉` |
-| 2021 | 104 | 991 | `█▋░░░░░░░░░░░░░░░` |
-| 2020 | 108 | 1178 | `█▋░░░░░░░░░░░░░░░░░▉` |
-| 2019 | 76 | 706 | `█▏░░░░░░░░░░▊` |
-| 2018 | 63 | 650 | `█░░░░░░░░░▉` |
-| 2017 | 50 | 454 | `▊░░░░░░▉` |
-| 2016 | 179 | 377 | `██▊░░░░░▊` |
-| 2015 | 761 | 114 | `███████████▌░▊` |
-| 2014 | 740 | 62 | `███████████▎░` |
-| 2013 | 531 | 117 | `████████░▊` |
-| 2012 | 398 | 6 | `██████▏` |
-| 2011 | 123 | 132 | `█▉░░` |
+| 2026 | 131 | 1666 | `█▉░░░░░░░░░░░░░░░░░░░░░░░▏` |
+| 2025 | 76 | 895 | `█░░░░░░░░░░░░▌` |
+| 2024 | 54 | 621 | `▊░░░░░░░░▋` |
+| 2023 | 60 | 555 | `▉░░░░░░░▊` |
+| 2022 | 95 | 654 | `█▍░░░░░░░░░▏` |
+| 2021 | 104 | 991 | `█▌░░░░░░░░░░░░░▊` |
+| 2020 | 108 | 1178 | `█▌░░░░░░░░░░░░░░░░▍` |
+| 2019 | 76 | 706 | `█░░░░░░░░░▉` |
+| 2018 | 63 | 650 | `▉░░░░░░░░░` |
+| 2017 | 50 | 454 | `▊░░░░░░▍` |
+| 2016 | 179 | 377 | `██▌░░░░░▎` |
+| 2015 | 761 | 114 | `██████████▋░▋` |
+| 2014 | 740 | 62 | `██████████▎▉` |
+| 2013 | 531 | 117 | `███████▍░▋` |
+| 2012 | 398 | 6 | `█████▌▏` |
+| 2011 | 123 | 132 | `█▊░▉` |
 
-**All time:** 3511 public commits · 9070 private contributions · 580 pull requests · 135 issues · 66 reviews
+**All time:** 3549 public commits · 9178 private contributions · 594 pull requests · 136 issues · 67 reviews
 
 
 ```mermaid
 pie showData title Commits by project (top 10)
     "hello.js" : 908
-    "dare" : 278
+    "dare" : 279
     "tricks" : 183
     "_packages" : 108
+    "adorn" : 101
     "node-oauth-shim" : 101
-    "adorn" : 97
+    "chisenhale.directory" : 56
     "peer.js" : 55
-    "background" : 48
-    "chisenhale.directory" : 46
+    "background" : 49
     "Toobify" : 41
 ```
+
+---
+
+## [blockfighter](https://github.com/MrSwitch/blockfighter)
+
+Vibe coded by a 10 year old 😃
+
+**Active:** Oct 2026 – Oct 2026
+
+**Links:** [Repository](https://github.com/MrSwitch/blockfighter) · [Website](http://adodson.com/blockfighter/) · [Issues](https://github.com/MrSwitch/blockfighter/issues)
+
+**Languages:**
+
+`█████████████████████████████░█`
+
+`TypeScript` 97.3% · `HTML` 2.0% · `CSS` 0.6%
+
+**My contributions:**
+
+| Metric | Count | Graph |
+| --- | ---: | :--- |
+| Commits | 29 | `▋` |
+| Pull requests | 0 | `` |
+| Issues created | 0 | `` |
+| Issues completed | 0 | `` |
+
+---
+
+## [chisenhale.directory](https://github.com/MrSwitch/chisenhale.directory)
+
+Chisenhale Primary School's PTA Directory website, aka "Little Black Book". Promoting community businesses, of interest to parents and teachers, in recognition for their sponsorship towards the schools PTA fund.
+
+**Active:** Apr 2025 – Oct 2026
+
+**Links:** [Repository](https://github.com/MrSwitch/chisenhale.directory) · [Website](http://chisenhale.directory/) · [Issues](https://github.com/MrSwitch/chisenhale.directory/issues)
+
+**Tags:** `#charity-website`
+
+**Languages:**
+
+`██████████████░░░░░░░░░███████`
+
+`CSS` 46.4% · `JavaScript` 29.6% · `HTML` 24.0%
+
+**My contributions:**
+
+| Metric | Count | Graph |
+| --- | ---: | :--- |
+| Commits | 56 | `█▎` |
+| Pull requests | 49 | `████▎` |
+| Issues created | 1 | `▏` |
+| Issues completed | 0 | `` |
 
 ---
 
@@ -71,60 +123,58 @@ Tricks and tips in ES
 | Metric | Count | Graph |
 | --- | ---: | :--- |
 | Commits | 183 | `████` |
-| Pull requests | 43 | `███▊` |
-| Issues created | 0 | `` |
-| Issues completed | 0 | `` |
-
----
-
-## [blockfighter](https://github.com/MrSwitch/blockfighter)
-
-Vibe coded by a 10 year old 😃
-
-**Active:** Oct 2026 – Oct 2026
-
-**Links:** [Repository](https://github.com/MrSwitch/blockfighter) · [Issues](https://github.com/MrSwitch/blockfighter/issues)
-
-**Languages:**
-
-`█████████████████████████████░█`
-
-`TypeScript` 97.1% · `HTML` 2.2% · `CSS` 0.7%
-
-**My contributions:**
-
-| Metric | Count | Graph |
-| --- | ---: | :--- |
-| Commits | 9 | `▎` |
-| Pull requests | 0 | `` |
-| Issues created | 0 | `` |
-| Issues completed | 0 | `` |
-
----
-
-## [chisenhale.directory](https://github.com/MrSwitch/chisenhale.directory)
-
-Chisenhale Primary School's PTA Directory website, aka "Little Black Book". Promoting community businesses, of interest to parents and teachers, in recognition for their sponsorship towards the schools PTA fund.
-
-**Active:** Apr 2025 – Oct 2026
-
-**Links:** [Repository](https://github.com/MrSwitch/chisenhale.directory) · [Website](http://chisenhale.directory/) · [Issues](https://github.com/MrSwitch/chisenhale.directory/issues)
-
-**Tags:** `#charity-website`
-
-**Languages:**
-
-`█████████████░░░░░░░░░███████`
-
-`CSS` 44.1% · `JavaScript` 31.3% · `HTML` 24.7%
-
-**My contributions:**
-
-| Metric | Count | Graph |
-| --- | ---: | :--- |
-| Commits | 46 | `█` |
 | Pull requests | 45 | `████` |
-| Issues created | 1 | `▏` |
+| Issues created | 0 | `` |
+| Issues completed | 0 | `` |
+
+---
+
+## [adorn](https://github.com/MrSwitch/adorn)
+
+Drop a `<link type=stylesheet href="adorn.css"/>` and a `<script src="adorn.js"/>` onto a an HTML page generated from markdown and watch it sparkle ✨
+
+**Active:** Sept 2014 – Oct 2026
+
+**Links:** [Repository](https://github.com/MrSwitch/adorn) · [Website](https://adodson.com/adorn/) · [Issues](https://github.com/MrSwitch/adorn/issues)
+
+**Languages:**
+
+`███████████████████░░░░░░░░░░░█░█`
+
+`TypeScript` 62.0% · `Less` 37.0% · `JavaScript` 0.5% · `HTML` 0.4% · `Ruby` 0.2%
+
+**My contributions:**
+
+| Metric | Count | Graph |
+| --- | ---: | :--- |
+| Commits | 101 | `██▎` |
+| Pull requests | 10 | `▉` |
+| Issues created | 2 | `▏` |
+| Issues completed | 0 | `` |
+
+---
+
+## [background](https://github.com/MrSwitch/background)
+
+Canvas based background animations
+
+**Active:** Aug 2015 – Oct 2026
+
+**Links:** [Repository](https://github.com/MrSwitch/background) · [Website](https://adodson.com/background) · [Issues](https://github.com/MrSwitch/background/issues)
+
+**Languages:**
+
+`██████████████████████████████`
+
+`TypeScript` 100.0%
+
+**My contributions:**
+
+| Metric | Count | Graph |
+| --- | ---: | :--- |
+| Commits | 49 | `█▏` |
+| Pull requests | 3 | `▎` |
+| Issues created | 0 | `` |
 | Issues completed | 0 | `` |
 
 ---
@@ -133,7 +183,7 @@ Chisenhale Primary School's PTA Directory website, aka "Little Black Book". Prom
 
 Database and REST
 
-**Active:** May 2016 – Sept 2026
+**Active:** May 2016 – Oct 2026
 
 **Links:** [Repository](https://github.com/MrSwitch/dare) · [Website](https://adodson.com/dare) · [Issues](https://github.com/MrSwitch/dare/issues)
 
@@ -141,17 +191,17 @@ Database and REST
 
 **Languages:**
 
-`██████████████████████████████░█`
+`█████████████████████████████░█`
 
-`TypeScript` 98.4% · `Shell` 1.6% · `HTML` 0.0%
+`TypeScript` 98.3% · `Shell` 1.6% · `HTML` 0.1%
 
 **My contributions:**
 
 | Metric | Count | Graph |
 | --- | ---: | :--- |
-| Commits | 278 | `██████▏` |
-| Pull requests | 226 | `████████████████████` |
-| Issues created | 71 | `██████▎` |
+| Commits | 279 | `██████▏` |
+| Pull requests | 228 | `████████████████████` |
+| Issues created | 72 | `██████▍` |
 | Issues completed | 60 | `█████▎` |
 
 ---
@@ -200,59 +250,9 @@ A Javascript RESTFUL API library for connecting with OAuth2 services, such as Go
 | Metric | Count | Graph |
 | --- | ---: | :--- |
 | Commits | 908 | `████████████████████` |
-| Pull requests | 32 | `██▉` |
+| Pull requests | 32 | `██▊` |
 | Issues created | 8 | `▊` |
 | Issues completed | 5 | `▌` |
-
----
-
-## [adorn](https://github.com/MrSwitch/adorn)
-
-Drop a `<link type=stylesheet href="adorn.css"/>` and a `<script src="adorn.js"/>` onto a an HTML page generated from markdown and watch it sparkle ✨
-
-**Active:** Sept 2014 – Jun 2025
-
-**Links:** [Repository](https://github.com/MrSwitch/adorn) · [Website](https://adodson.com/adorn/) · [Issues](https://github.com/MrSwitch/adorn/issues)
-
-**Languages:**
-
-`█████████████████░░░░░░░░░░░░█░`
-
-`JavaScript` 58.3% · `Less` 41.0% · `HTML` 0.5% · `Ruby` 0.2%
-
-**My contributions:**
-
-| Metric | Count | Graph |
-| --- | ---: | :--- |
-| Commits | 97 | `██▏` |
-| Pull requests | 7 | `▋` |
-| Issues created | 2 | `▏` |
-| Issues completed | 0 | `` |
-
----
-
-## [background](https://github.com/MrSwitch/background)
-
-Canvas based background animations
-
-**Active:** Aug 2015 – Oct 2024
-
-**Links:** [Repository](https://github.com/MrSwitch/background) · [Website](https://adodson.com/background) · [Issues](https://github.com/MrSwitch/background/issues)
-
-**Languages:**
-
-`██████████████████████████████`
-
-`JavaScript` 100.0%
-
-**My contributions:**
-
-| Metric | Count | Graph |
-| --- | ---: | :--- |
-| Commits | 48 | `█` |
-| Pull requests | 2 | `▏` |
-| Issues created | 0 | `` |
-| Issues completed | 0 | `` |
 
 ---
 
