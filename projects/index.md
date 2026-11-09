@@ -7,7 +7,7 @@ title: Projects
 
 Projects created or contributed to by [@MrSwitch](https://github.com/MrSwitch).
 
-_Generated on 2026-11-02 — do not edit by hand, run `npm run projects`._
+_Generated on 2026-11-09 — do not edit by hand, run `npm run projects`._
 
 ## Contribution history
 
@@ -16,24 +16,24 @@ repositories, aggregated anonymously (`█` public commits, `░` private).
 
 | Year | Commits | Private | Graph |
 | --- | ---: | ---: | :--- |
-| 2026 | 131 | 1702 | `█▊░░░░░░░░░░░░░░░░░░░░░░░▎` |
-| 2025 | 76 | 895 | `█░░░░░░░░░░░░▎` |
-| 2024 | 54 | 621 | `▊░░░░░░░░▌` |
-| 2023 | 60 | 555 | `▉░░░░░░░▋` |
-| 2022 | 95 | 654 | `█▎░░░░░░░░▉` |
-| 2021 | 104 | 991 | `█▍░░░░░░░░░░░░░▌` |
-| 2020 | 108 | 1178 | `█▌░░░░░░░░░░░░░░░░▏` |
-| 2019 | 76 | 706 | `█░░░░░░░░░▋` |
-| 2018 | 63 | 650 | `▉░░░░░░░░▉` |
-| 2017 | 50 | 454 | `▋░░░░░░▎` |
-| 2016 | 179 | 377 | `██▌░░░░░▏` |
-| 2015 | 761 | 114 | `██████████▍░▌` |
-| 2014 | 740 | 62 | `██████████▏▉` |
-| 2013 | 531 | 117 | `███████▎░▋` |
+| 2026 | 131 | 1731 | `█▊░░░░░░░░░░░░░░░░░░░░░░░▎` |
+| 2025 | 76 | 895 | `█░░░░░░░░░░░░` |
+| 2024 | 54 | 621 | `▊░░░░░░░░▍` |
+| 2023 | 60 | 555 | `▊░░░░░░░▌` |
+| 2022 | 95 | 654 | `█▎░░░░░░░░▊` |
+| 2021 | 104 | 991 | `█▍░░░░░░░░░░░░░▎` |
+| 2020 | 108 | 1178 | `█▌░░░░░░░░░░░░░░░▉` |
+| 2019 | 76 | 706 | `█░░░░░░░░░▌` |
+| 2018 | 63 | 650 | `▉░░░░░░░░▊` |
+| 2017 | 50 | 454 | `▋░░░░░░▏` |
+| 2016 | 179 | 377 | `██▍░░░░░` |
+| 2015 | 761 | 114 | `██████████▎░▌` |
+| 2014 | 740 | 62 | `█████████▉▉` |
+| 2013 | 531 | 117 | `███████▏░▋` |
 | 2012 | 398 | 6 | `█████▍▏` |
 | 2011 | 123 | 132 | `█▋░▊` |
 
-**All time:** 3549 public commits · 9214 private contributions · 594 pull requests · 136 issues · 67 reviews
+**All time:** 3549 public commits · 9243 private contributions · 594 pull requests · 136 issues · 67 reviews
 
 
 ```mermaid
@@ -56,7 +56,7 @@ pie showData title Commits by project (top 10)
 
 Tricks and tips in ES
 
-**Active:** Sept 2015 – Oct 2026
+**Active:** Sept 2015 – Nov 2026
 
 **Links:** [Repository](https://github.com/MrSwitch/tricks) · [Website](https://adodson.com/tricks/) · [Issues](https://github.com/MrSwitch/tricks/issues)
 
@@ -73,6 +73,33 @@ Tricks and tips in ES
 | Commits | 183 | `████` |
 | Pull requests | 45 | `████` |
 | Issues created | 0 | `` |
+| Issues completed | 0 | `` |
+
+---
+
+## [chisenhale.directory](https://github.com/MrSwitch/chisenhale.directory)
+
+Chisenhale Primary School's PTA Directory website, aka "Little Black Book". Promoting community businesses, of interest to parents and teachers, in recognition for their sponsorship towards the schools PTA fund.
+
+**Active:** Apr 2025 – Nov 2026
+
+**Links:** [Repository](https://github.com/MrSwitch/chisenhale.directory) · [Website](http://chisenhale.directory/) · [Issues](https://github.com/MrSwitch/chisenhale.directory/issues)
+
+**Tags:** `#charity-website`
+
+**Languages:**
+
+`██████████████░░░░░░░░░███████`
+
+`CSS` 46.4% · `JavaScript` 29.6% · `HTML` 24.0%
+
+**My contributions:**
+
+| Metric | Count | Graph |
+| --- | ---: | :--- |
+| Commits | 56 | `█▎` |
+| Pull requests | 49 | `████▎` |
+| Issues created | 1 | `▏` |
 | Issues completed | 0 | `` |
 
 ---
@@ -98,33 +125,6 @@ Vibe coded by a 10 year old 😃
 | Commits | 29 | `▋` |
 | Pull requests | 0 | `` |
 | Issues created | 0 | `` |
-| Issues completed | 0 | `` |
-
----
-
-## [chisenhale.directory](https://github.com/MrSwitch/chisenhale.directory)
-
-Chisenhale Primary School's PTA Directory website, aka "Little Black Book". Promoting community businesses, of interest to parents and teachers, in recognition for their sponsorship towards the schools PTA fund.
-
-**Active:** Apr 2025 – Oct 2026
-
-**Links:** [Repository](https://github.com/MrSwitch/chisenhale.directory) · [Website](http://chisenhale.directory/) · [Issues](https://github.com/MrSwitch/chisenhale.directory/issues)
-
-**Tags:** `#charity-website`
-
-**Languages:**
-
-`██████████████░░░░░░░░░███████`
-
-`CSS` 46.4% · `JavaScript` 29.6% · `HTML` 24.0%
-
-**My contributions:**
-
-| Metric | Count | Graph |
-| --- | ---: | :--- |
-| Commits | 56 | `█▎` |
-| Pull requests | 49 | `████▎` |
-| Issues created | 1 | `▏` |
 | Issues completed | 0 | `` |
 
 ---
